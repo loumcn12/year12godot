@@ -1,0 +1,20 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1714641175
+icon.svg::CompressedTexture2D::7253444020384739668::1714543007::1714543014::1::::<><>::
+::res://assets/::1714543025
+::res://assets/hdris/::1714543220
+kloofendal_48d_partly_cloudy_puresky_2k.hdr::CompressedTexture2D::853352130531495874::1714543025::1714543220::1::::<><>::
+::res://assets/textures/::1714543025
+::res://assets/textures/dev/::1714543025
+::res://assets/textures/dev/grids/::1714543025
+::res://assets/textures/dev/grids/Dark/::1714543382
+texture_07.png::CompressedTexture2D::6341481679236404867::1714543025::1714543382::1::::<><>::
+::res://assets/textures/dev/grids/Orange/::1714543025
+texture_05.png::CompressedTexture2D::4734137425096153811::1714543025::1714642931::1::::<><>::
+::res://scenes/::1714642741
+main.tscn::PackedScene::4535290070178386880::1714642741::0::1::::<><>::uid://cwl4jn6tuy0pb::::res://assets/textures/dev/grids/Dark/texture_07.png<>uid://mfmt5fpbaura::::res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr<>res://scripts/player.gd
+::res://scenes/Menus/::1714642741
+main_menu.tscn::PackedScene::2804944560205798397::1714642741::0::1::::<><>::res://scripts/Main Menu.gd
+::res://scripts/::1714642661
+Main Menu.gd::GDScript::-1::1714637636::0::1::::<>Control<>::
+player.gd::GDScript::-1::1714642661::0::1::::<>CharacterBody3D<>::

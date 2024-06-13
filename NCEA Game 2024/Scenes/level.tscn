@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://l55gt1wnx5n0"]
+
+[ext_resource type="PackedScene" uid="uid://qo0gfsuj80n5" path="res://Blender/Basic House.blend" id="1_7tlbo"]
+[ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
+
+[sub_resource type="Sky" id="Sky_fy2j0"]
+sky_material = SubResource("ProceduralSkyMaterial_7saj8")
+
+[sub_resource type="Environment" id="Environment_lme4c"]
+background_mode = 2
+sky = SubResource("Sky_fy2j0")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Basic House" parent="." instance=ExtResource("1_7tlbo")]
+
+[node name="player" parent="." instance=ExtResource("2_wmlmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lme4c")
