@@ -15,6 +15,7 @@ sky = SubResource("Sky_fy2j0")
 [node name="Node3D" type="Node3D"]
 
 [node name="Basic House" parent="." instance=ExtResource("1_7tlbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409985, -0.258532, -0.518543)
 
 [node name="player" parent="." instance=ExtResource("2_wmlmx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
