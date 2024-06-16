@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://l55gt1wnx5n0"]
 
-[ext_resource type="PackedScene" uid="uid://qo0gfsuj80n5" path="res://Blender/Basic House.blend" id="1_7tlbo"]
+[ext_resource type="PackedScene" uid="uid://cyqt18wbb5ljl" path="res://Blender/betterhouse.blend" id="2_8pouo"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
@@ -14,14 +14,20 @@ sky = SubResource("Sky_fy2j0")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Basic House" parent="." instance=ExtResource("1_7tlbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0409985, -0.258532, -0.518543)
-
 [node name="player" parent="." instance=ExtResource("2_wmlmx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
+floor_max_angle = 1.23569
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lme4c")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.482058, 0)
+use_collision = true
+size = Vector3(100, 0.25, 100)
+
+[node name="betterhouse" parent="." instance=ExtResource("2_8pouo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
