@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyqt18wbb5ljl" path="res://Blender/betterhouse.blend" id="2_8pouo"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
-[ext_resource type="PackedScene" uid="uid://dsw7txcw63alp" path="res://Blender/frontdoor_col.glb" id="3_gfogc"]
+[ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/door.tscn" id="3_w4fpq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -32,7 +32,9 @@ size = Vector3(100, 0.25, 100)
 
 [node name="betterhouse" parent="." instance=ExtResource("2_8pouo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
-visible = false
 
-[node name="frontdoor_col2" parent="." instance=ExtResource("3_gfogc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36952, -0.0302815, 5.48669)
+[node name="door" parent="." instance=ExtResource("3_w4fpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.51565)
+
+[node name="door2" parent="." instance=ExtResource("3_w4fpq")]
+transform = Transform3D(-1.05905, 0, -8.74228e-08, 0, 1, 0, 9.25852e-08, 0, -1, 0.0377395, -0.0213304, -6.79888)

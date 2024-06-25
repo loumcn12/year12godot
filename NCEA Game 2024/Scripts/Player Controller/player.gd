@@ -9,6 +9,8 @@ extends CharacterBody3D
 @onready var standing_collision_shape = $standing_collision_shape
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var uncrouch_check = $uncrouch_check
+@onready var ray = $neck/Head/eyes/Camera3D/interaction_check
+@onready var interaction_notifier = $Control/interaction_notifier
 
 # Speed variables
 var current_speed = 5.0
@@ -20,6 +22,7 @@ var walking = false
 var crouching = false
 var sliding = false
 var can_doublejump = true
+var frontdoor_open = false
 
 # Head bobbing vars
 const head_bobbing_walking_speed = 14.0
@@ -53,7 +56,23 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+
+func _check_ray_hit():
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		if collider:
+			if ray.get_collider().is_in_group("door"):
+				interaction_notifier.visible = true
+			if Input.is_action_just_pressed("use") and !collider.door_open:
+				collider.door_open = true
+			elif Input.is_action_just_pressed("use") and collider.door_open:
+				collider.door_open = false
+			
+	else:
+		interaction_notifier.visible = false
+
 func _physics_process(delta):
+	_check_ray_hit()
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 			
