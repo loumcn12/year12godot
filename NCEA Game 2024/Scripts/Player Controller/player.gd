@@ -65,8 +65,10 @@ func _check_ray_hit():
 				interaction_notifier.visible = true
 				if Input.is_action_just_pressed("use") and !collider.door_open:
 					collider.door_open = true
+					collider.door_moving = true
 				elif Input.is_action_just_pressed("use") and collider.door_open:
 					collider.door_open = false
+					collider.door_moving = true
 			
 	else:
 		interaction_notifier.visible = false
