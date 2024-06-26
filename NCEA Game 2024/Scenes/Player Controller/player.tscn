@@ -33,7 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 0.994656, -0.103244, 0, 0.103244, 0.994656, 
 [node name="Camera3D" type="Camera3D" parent="neck/Head/eyes"]
 
 [node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -1.5)
 
 [node name="Control" type="Control" parent="."]
@@ -58,4 +57,4 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_force_pass_scroll_events = false
-text = "Press E to open door"
+text = "Press E to open/close door"

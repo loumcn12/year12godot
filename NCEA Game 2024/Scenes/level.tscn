@@ -37,4 +37,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.51565)
 
 [node name="door2" parent="." instance=ExtResource("3_w4fpq")]
-transform = Transform3D(-1.05905, 0, -8.74228e-08, 0, 1, 0, 9.25852e-08, 0, -1, 0.0377395, -0.0213304, -6.79888)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0628049, -0.0113185, -6.76049)

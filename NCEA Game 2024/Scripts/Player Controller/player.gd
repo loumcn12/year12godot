@@ -63,10 +63,10 @@ func _check_ray_hit():
 		if collider:
 			if ray.get_collider().is_in_group("door"):
 				interaction_notifier.visible = true
-			if Input.is_action_just_pressed("use") and !collider.door_open:
-				collider.door_open = true
-			elif Input.is_action_just_pressed("use") and collider.door_open:
-				collider.door_open = false
+				if Input.is_action_just_pressed("use") and !collider.door_open:
+					collider.door_open = true
+				elif Input.is_action_just_pressed("use") and collider.door_open:
+					collider.door_open = false
 			
 	else:
 		interaction_notifier.visible = false
