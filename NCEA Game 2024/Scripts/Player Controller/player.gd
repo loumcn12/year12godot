@@ -22,7 +22,6 @@ var walking = false
 var crouching = false
 var sliding = false
 var can_doublejump = true
-var frontdoor_open = false
 
 # Head bobbing vars
 const head_bobbing_walking_speed = 14.0
@@ -63,12 +62,8 @@ func _check_ray_hit():
 		if collider:
 			if ray.get_collider().is_in_group("door"):
 				interaction_notifier.visible = true
-				if Input.is_action_just_pressed("use") and !collider.door_open:
-					collider.door_open = true
-					collider.door_moving = true
-				elif Input.is_action_just_pressed("use") and collider.door_open:
-					collider.door_open = false
-					collider.door_moving = true
+				if Input.is_action_just_pressed("use") :
+					collider.open_door()
 			
 	else:
 		interaction_notifier.visible = false

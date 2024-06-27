@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=10 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="PackedScene" uid="uid://cyqt18wbb5ljl" path="res://Blender/betterhouse.blend" id="2_8pouo"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
-[ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/door.tscn" id="3_w4fpq"]
+[ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/Doors/door.tscn" id="3_w4fpq"]
+[ext_resource type="PackedScene" uid="uid://bacg3obqrhs6j" path="res://Scenes/Doors/door2.tscn" id="4_oxeqs"]
+[ext_resource type="PackedScene" uid="uid://baxjixsvj8iho" path="res://Scenes/Doors/door3.tscn" id="5_k7i6l"]
+[ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -36,5 +39,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
 [node name="door" parent="." instance=ExtResource("3_w4fpq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.51565)
 
-[node name="door2" parent="." instance=ExtResource("3_w4fpq")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0628049, -0.0113185, -6.76049)
+[node name="door2" parent="." instance=ExtResource("4_oxeqs")]
+transform = Transform3D(0.867739, 0, 0, 0, 1, 0, 0, 0, 1, 0.247027, -0.0221041, -2.8179)
+
+[node name="door4" parent="." instance=ExtResource("4_oxeqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.247027, -0.0221041, 3.08288)
+
+[node name="Node3D" parent="." instance=ExtResource("5_k7i6l")]
+transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.219011, 0, -0.980426)
+
+[node name="Node3D2" parent="." instance=ExtResource("6_8eed4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0928072, 0.0981743, -6.67007)
