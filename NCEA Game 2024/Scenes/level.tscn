@@ -37,16 +37,17 @@ size = Vector3(100, 0.25, 100)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
 
 [node name="door" parent="." instance=ExtResource("3_w4fpq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.51565)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.70554)
 
 [node name="door2" parent="." instance=ExtResource("4_oxeqs")]
 transform = Transform3D(0.867739, 0, 0, 0, 1, 0, 0, 0, 1, 0.297907, -0.0221041, -2.8179)
 
 [node name="door4" parent="." instance=ExtResource("4_oxeqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286289, -0.0221041, 3.08288)
+door_locked = true
 
 [node name="Node3D" parent="." instance=ExtResource("5_k7i6l")]
 transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.281367, 0, -0.980426)
 
 [node name="Node3D2" parent="." instance=ExtResource("6_8eed4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0928072, -0.0145384, -6.67007)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0928072, -0.0145384, -6.96079)

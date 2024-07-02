@@ -1,6 +1,7 @@
 extends StaticBody3D
 #
 var door_open = false
+@export var door_locked = false
 
 func _ready():
 	open_door()

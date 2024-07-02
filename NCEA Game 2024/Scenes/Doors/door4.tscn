@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://csk5oig2bgcf1"]
 
-[ext_resource type="Script" path="res://Scenes/Doors/door.gd" id="1_2f0ad"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_f4hcj"]
 [ext_resource type="PackedScene" uid="uid://gr7rmfeihxc7" path="res://Blender/frontdoor.glb" id="2_8n7gm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c4jj"]
@@ -43,7 +43,7 @@ _data = {
 }
 
 [node name="Node3D" type="StaticBody3D" groups=["door"]]
-script = ExtResource("1_2f0ad")
+script = ExtResource("1_f4hcj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["door"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.771683, 1.2897, -0.00723267)

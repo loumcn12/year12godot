@@ -11,6 +11,9 @@ extends CharacterBody3D
 @onready var uncrouch_check = $uncrouch_check
 @onready var ray = $neck/Head/eyes/Camera3D/interaction_check
 @onready var interaction_notifier = $Control/interaction_notifier
+@onready var locked_door = $Control/locked_door
+@onready var lock_door = $Control/lock_door
+@onready var unlock_door = $Control/unlock_door
 
 # Speed variables
 var current_speed = 5.0
@@ -60,13 +63,19 @@ func _check_ray_hit():
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
-			if ray.get_collider().is_in_group("door"):
+			if ray.get_collider().is_in_group("door") and !collider.door_locked:
 				interaction_notifier.visible = true
+				
 				if Input.is_action_just_pressed("use") :
 					collider.open_door()
-			
+			elif ray.get_collider().is_in_group("door") and collider.door_locked:
+				locked_door.visible = true
+	
 	else:
 		interaction_notifier.visible = false
+		locked_door.visible = false
+		lock_door.visible = false
+		unlock_door.visible = false
 
 func _physics_process(delta):
 	_check_ray_hit()
@@ -141,5 +150,5 @@ func _physics_process(delta):
 	# Quits the game if the escape key is pressed
 	if Input.is_physical_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
-
+	
 	move_and_slide()
