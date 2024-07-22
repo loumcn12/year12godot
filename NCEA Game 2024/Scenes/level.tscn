@@ -47,14 +47,14 @@ transform = Transform3D(0.867739, 0, 0, 0, 1, 0, 0, 0, 1, 0.297907, -0.0221041, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286289, -0.0221041, 3.08288)
 door_locked = true
 
-[node name="door5" parent="." instance=ExtResource("4_oxeqs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5961, -0.366801, -29.236)
-
 [node name="Node3D" parent="." instance=ExtResource("5_k7i6l")]
 transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.281367, 0, -0.980426)
+
+[node name="Node3D3" parent="." instance=ExtResource("5_k7i6l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9037, -0.376478, -29.306)
 
 [node name="Node3D2" parent="." instance=ExtResource("6_8eed4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0928072, -0.0145384, -6.96079)
 
 [node name="Shed" parent="." instance=ExtResource("7_ksg17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5661, -0.357058, -29.4968)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -24.9046, -0.357058, -27.4935)
