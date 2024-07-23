@@ -43,7 +43,6 @@ _data = {
 }
 
 [node name="Node3D" type="StaticBody3D" groups=["door"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_qxd07")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["door"]]
