@@ -23,7 +23,7 @@ sky = SubResource("Sky_fy2j0")
 [node name="Node3D" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("2_wmlmx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7203, 0.643545, 1.32248)
 floor_max_angle = 1.23569
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -65,13 +65,13 @@ transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.281367, 0, -0.980426)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618185, -0.000224859, -6.96052)
 
 [node name="gascan" parent="." instance=ExtResource("9_sekky")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0736, -0.378399, -3.22715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2432, -0.378399, -16.1886)
 
 [node name="fueltank" parent="." instance=ExtResource("10_j6diw")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.3757, 0.293109, -27.271)
 
 [node name="gascan2" parent="." instance=ExtResource("9_sekky")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77093, -0.378399, -13.7534)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4769, -0.378399, -16.1941)
 
 [node name="gascan3" parent="." instance=ExtResource("9_sekky")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3256, -0.3784, -10.1957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8602, -0.3784, -16.2224)
