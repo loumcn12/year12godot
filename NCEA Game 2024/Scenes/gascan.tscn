@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://crb4hiqn4un21"]
+[gd_scene load_steps=4 format=3 uid="uid://crb4hiqn4un21"]
 
 [ext_resource type="Script" path="res://Scripts/gascan.gd" id="1_i3gdn"]
 [ext_resource type="PackedScene" uid="uid://wvykde7phac" path="res://Blender/GASCAN.blend" id="1_rsc3l"]
 
-[node name="Node3D" type="StaticBody3D" groups=["door"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4jwcm"]
+
+[node name="gascan" type="StaticBody3D" groups=["gascan"]]
 script = ExtResource("1_i3gdn")
 
 [node name="GASCAN" parent="." instance=ExtResource("1_rsc3l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.85, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_4jwcm")

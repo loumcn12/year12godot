@@ -24,6 +24,10 @@ sky = SubResource("Sky_fy2j0")
 [node name="player" parent="." instance=ExtResource("2_wmlmx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
 floor_max_angle = 1.23569
+walking_speed = 5.0
+crouching_speed = 3.0
+jump_velocity = 4.5
+mouse_sens = 0.25
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)

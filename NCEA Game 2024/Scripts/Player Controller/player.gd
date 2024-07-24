@@ -11,6 +11,7 @@ extends CharacterBody3D
 @onready var uncrouch_check = $uncrouch_check
 @onready var ray = $neck/Head/eyes/Camera3D/interaction_check
 @onready var interaction_notifier = $Control/interaction_notifier
+@onready var gascan_notifier = $Control/gascan_notifier
 @onready var locked_door = $Control/locked_door
 @onready var lock_door = $Control/lock_door
 @onready var unlock_door = $Control/unlock_door
@@ -63,16 +64,23 @@ func _check_ray_hit():
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
-			if ray.get_collider().is_in_group("door") and !collider.door_locked:
+			if collider.is_in_group("door") and !collider.door_locked:
 				interaction_notifier.visible = true
 				
 				if Input.is_action_just_pressed("use") :
 					collider.open_door()
-			elif ray.get_collider().is_in_group("door") and collider.door_locked:
+			elif collider.is_in_group("door") and collider.door_locked:
 				locked_door.visible = true
+			elif collider.is_in_group("gascan"):
+				gascan_notifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					$gascan.visible = true
+					collider.queue_free()
 	
 	else:
 		interaction_notifier.visible = false
+		gascan_notifier.visible = false
 		locked_door.visible = false
 		lock_door.visible = false
 		unlock_door.visible = false
