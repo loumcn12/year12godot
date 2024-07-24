@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=14 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="PackedScene" uid="uid://cyqt18wbb5ljl" path="res://Blender/betterhouse.blend" id="2_8pouo"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
 [ext_resource type="PackedScene" uid="uid://dtncl3s3civpp" path="res://Blender/Shed.blend" id="7_ksg17"]
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="9_sekky"]
+[ext_resource type="PackedScene" uid="uid://cy6d6454ak8qs" path="res://Scenes/fueltank.tscn" id="10_j6diw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -65,3 +66,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618185, -0.000224859, -6.
 
 [node name="gascan" parent="." instance=ExtResource("9_sekky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0736, -0.378399, -3.22715)
+
+[node name="fueltank" parent="." instance=ExtResource("10_j6diw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.3757, 0.293109, -27.271)
+
+[node name="gascan2" parent="." instance=ExtResource("9_sekky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77093, -0.378399, -13.7534)
+
+[node name="gascan3" parent="." instance=ExtResource("9_sekky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3256, -0.3784, -10.1957)

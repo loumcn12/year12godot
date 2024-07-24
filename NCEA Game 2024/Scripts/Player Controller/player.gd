@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var ray = $neck/Head/eyes/Camera3D/interaction_check
 @onready var interaction_notifier = $Control/interaction_notifier
 @onready var gascan_notifier = $Control/gascan_notifier
+@onready var fueltank_notifier = $Control/fueltank_notifier
 @onready var locked_door = $Control/locked_door
 @onready var lock_door = $Control/lock_door
 @onready var unlock_door = $Control/unlock_door
@@ -26,6 +27,7 @@ var walking = false
 var crouching = false
 var sliding = false
 var can_doublejump = true
+var holding_gascan = false
 
 # Head bobbing vars
 const head_bobbing_walking_speed = 14.0
@@ -49,10 +51,13 @@ var direction = Vector3.ZERO
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var gascount = 0
+
 
 func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 func _input(event):
 	# Make the camera movement match mouse movement
 	if event is InputEventMouseMotion:
@@ -61,6 +66,7 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _check_ray_hit():
+	
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
@@ -71,15 +77,25 @@ func _check_ray_hit():
 					collider.open_door()
 			elif collider.is_in_group("door") and collider.door_locked:
 				locked_door.visible = true
-			elif collider.is_in_group("gascan"):
+			elif collider.is_in_group("gascan") and !holding_gascan:
 				gascan_notifier.visible = true
 				
 				if Input.is_action_just_pressed("use"):
-					$gascan.visible = true
+					holding_gascan = true
 					collider.queue_free()
+					
+			elif collider.is_in_group("fueltank") and holding_gascan:
+				fueltank_notifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					holding_gascan = false
+					fueltank_notifier.visible = false
+					gascount = gascount + 1
+					$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 	
 	else:
 		interaction_notifier.visible = false
+		fueltank_notifier.visible = false
 		gascan_notifier.visible = false
 		locked_door.visible = false
 		lock_door.visible = false
@@ -89,7 +105,11 @@ func _physics_process(delta):
 	_check_ray_hit()
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-			
+	
+	if holding_gascan:
+		$gascan.visible = true
+	else:
+		$gascan.visible = false
 	# Handle crouching
 	if (Input.is_action_pressed("crouch") && is_on_floor()) || sliding:
 		# Crouching	
