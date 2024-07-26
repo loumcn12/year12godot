@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy6d6454ak8qs"]
 
-[ext_resource type="Script" path="res://Scripts/gascan.gd" id="1_ix8f6"]
+[ext_resource type="Script" path="res://scripts/gascan.gd" id="1_ix8f6"]
 [ext_resource type="PackedScene" uid="uid://cr5ei1mcg4bvv" path="res://Assets/Blender/fueltank.glb" id="2_1p1y0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bdoxk"]

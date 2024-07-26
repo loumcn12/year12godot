@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://csk5oig2bgcf1"]
 
-[ext_resource type="Script" path="res://Scripts/door.gd" id="1_f4hcj"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="1_f4hcj"]
 [ext_resource type="PackedScene" uid="uid://gr7rmfeihxc7" path="res://Assets/Blender/frontdoor.glb" id="2_8n7gm"]
 
 [sub_resource type="Animation" id="Animation_ub83m"]

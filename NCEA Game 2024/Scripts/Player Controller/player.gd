@@ -56,9 +56,17 @@ var gascount = 0
 
 func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+	
+
+	
+		
 func _input(event):
+	if event is InputEventMouseButton:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Make the camera movement match mouse movement
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
