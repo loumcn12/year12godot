@@ -56,7 +56,7 @@ var gascount = 0
 
 func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
