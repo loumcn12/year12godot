@@ -56,11 +56,15 @@ var gascount = 0
 
 func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	var os = OS.get_model_name()
+	print(os)
+	if os != "Web":
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
-	
+		
 
 	
 		
