@@ -56,16 +56,16 @@ var gascount = 0
 
 func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
-	
+	$Sprite2D.visible = true
 	var os = OS.get_model_name()
-	print(os)
-	if os != "Web":
+	if os != "web":
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 		
-
+	await get_tree().create_timer(2).timeout
+	$Sprite2D.visible = false
 	
 		
 func _input(event):

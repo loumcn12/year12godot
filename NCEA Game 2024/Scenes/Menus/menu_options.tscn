@@ -17,6 +17,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -230.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ytobg")
@@ -42,18 +43,38 @@ text = "Modular Hardware Acceleration: On "
 
 [node name="WindowButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+text = " "
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/WindowButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = -15.5
+offset_right = 145.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Fullscreen Mode:"
 
 [node name="ResolutionButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Resolution: 1920x1080"
 
 [node name="Back_Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Back"
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
-layout_mode = 2
-text = "Fullscreen Mode:"
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: 30"
 
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/WindowButton/CheckButton" to="." method="_on_check_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back_Button" to="." method="_on_back_button_pressed"]

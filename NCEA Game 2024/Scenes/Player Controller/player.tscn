@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxrl4bqkmswtx"]
+[gd_scene load_steps=6 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m04g1"]
 height = 1.2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dwex6"]
+specular_color = Color(0, 0, 0, 1)
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("3_vlw48")
@@ -151,3 +154,9 @@ text = "Press F to Unlock Door"
 [node name="gascan" parent="." instance=ExtResource("2_f7xrk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368934, 0.676157, -1.10868)
 visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(966.25, 544.75)
+scale = Vector2(1933.5, 1090.5)
+texture = SubResource("CanvasTexture_dwex6")

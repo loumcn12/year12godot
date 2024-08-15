@@ -15,11 +15,14 @@ run/main_scene="res://Scenes/Menus/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globalscript="*res://Scripts/globalscript.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [input]

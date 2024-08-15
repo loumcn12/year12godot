@@ -72,6 +72,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88958, 0.0401992, 2.86605)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)
+light_color = Color(0.18124, 0.196563, 0.526221, 1)
+light_energy = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
 environment = SubResource("Environment_lme4c")
