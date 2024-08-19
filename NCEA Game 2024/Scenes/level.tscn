@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=16 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
 [ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/Doors/door.tscn" id="3_w4fpq"]
@@ -20,6 +20,9 @@ sky_material = SubResource("ProceduralSkyMaterial_7saj8")
 [sub_resource type="Environment" id="Environment_lme4c"]
 background_mode = 2
 sky = SubResource("Sky_fy2j0")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tbqnj"]
+size = Vector3(1, 5.79645, 65.5977)
 
 [node name="Level" type="Node3D"]
 
@@ -85,3 +88,21 @@ size = Vector3(100, 0.25, 100)
 
 [node name="tree" parent="." instance=ExtResource("11_m004l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1538, -0.0405241, -39.4961)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9447, 2.39822, 0.204834)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9467, 2.39822, 0.204834)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.000558539, 0, -1, 0, 1, 0, 1, 0, -0.000558539, -0.511366, 2.39822, -29.1559)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.000558539, 0, -1, 0, 1, 0, 1, 0, -0.000558539, -0.543894, 2.39822, 28.8069)
+shape = SubResource("BoxShape3D_tbqnj")
