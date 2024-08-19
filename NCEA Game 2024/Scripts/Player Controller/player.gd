@@ -64,7 +64,7 @@ func _ready():
 	
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 		
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.2).timeout
 	$Sprite2D.visible = false
 	
 		
