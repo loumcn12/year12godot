@@ -59,7 +59,7 @@ func _ready():
 	$LoadingLabel.visible = true
 	$LoadingScreen.visible = true
 	var os = OS.get_model_name()
-	if os != "web":
+	if os != "Web":
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	
