@@ -155,8 +155,27 @@ text = "Press F to Unlock Door"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368934, 0.676157, -1.10868)
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="LoadingScreen" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(966.25, 544.75)
 scale = Vector2(1933.5, 1090.5)
 texture = SubResource("CanvasTexture_dwex6")
+
+[node name="LoadingLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -62.0
+offset_right = -99.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.32, 5.32)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1
