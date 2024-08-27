@@ -106,6 +106,11 @@ func _check_ray_hit():
 					fueltank_notifier.visible = false
 					gascount = gascount + 1
 					$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+			else:
+				fueltank_notifier.visible = false
+				gascan_notifier.visible = false
+				locked_door.visible = false
+				interaction_notifier.visible = false
 	
 	else:
 		interaction_notifier.visible = false
