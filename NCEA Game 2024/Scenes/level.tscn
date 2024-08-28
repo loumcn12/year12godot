@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=17 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
 [ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/Doors/door.tscn" id="3_w4fpq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bacg3obqrhs6j" path="res://Scenes/Doors/door2.tscn" id="4_oxeqs"]
 [ext_resource type="PackedScene" uid="uid://baxjixsvj8iho" path="res://Scenes/Doors/door3.tscn" id="5_k7i6l"]
 [ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
+[ext_resource type="PackedScene" uid="uid://ckhi5rrwj1rmk" path="res://Assets/Blender/tv.glb" id="8_fvkm1"]
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="9_sekky"]
 [ext_resource type="PackedScene" uid="uid://bcl6vystd07vf" path="res://Assets/Blender/Shed.glb" id="9_vi4ic"]
 [ext_resource type="PackedScene" uid="uid://cp8l1ix1w31un" path="res://Assets/Blender/betterhouse.glb" id="10_fdg3w"]
@@ -53,6 +54,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, -
 
 [node name="Shed Door" parent="Shed" instance=ExtResource("4_awk8q")]
 transform = Transform3D(1.00836, 0, 0, 0, 1, 0, 0, 0, 1, 3.99654, 0.00954989, 0.275877)
+
+[node name="tv" parent="." instance=ExtResource("8_fvkm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 0, 0.42)
 
 [node name="House" parent="." instance=ExtResource("10_fdg3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
