@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxrl4bqkmswtx"]
+[gd_scene load_steps=8 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
+[ext_resource type="Shader" path="res://Assets/hdris/pixellation.gdshader" id="3_5ein4"]
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tevmw"]
@@ -10,6 +11,9 @@ height = 1.2
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dwex6"]
 specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1eqk"]
+shader = ExtResource("3_5ein4")
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("3_vlw48")
@@ -185,3 +189,12 @@ size_flags_vertical = 8
 text = "Loading"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_p1eqk")
+offset_right = 1922.0
+offset_bottom = 1082.0
+metadata/_edit_use_anchors_ = true

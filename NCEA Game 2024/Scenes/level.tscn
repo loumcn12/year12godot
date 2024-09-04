@@ -1,17 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=18 format=3 uid="uid://l55gt1wnx5n0"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
 [ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/Doors/door.tscn" id="3_w4fpq"]
 [ext_resource type="PackedScene" uid="uid://dse1b4xwequem" path="res://Scenes/Doors/doorshed.tscn" id="4_awk8q"]
 [ext_resource type="PackedScene" uid="uid://bacg3obqrhs6j" path="res://Scenes/Doors/door2.tscn" id="4_oxeqs"]
 [ext_resource type="PackedScene" uid="uid://baxjixsvj8iho" path="res://Scenes/Doors/door3.tscn" id="5_k7i6l"]
 [ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
-[ext_resource type="PackedScene" uid="uid://ckhi5rrwj1rmk" path="res://Assets/Blender/tv.glb" id="8_fvkm1"]
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="9_sekky"]
 [ext_resource type="PackedScene" uid="uid://bcl6vystd07vf" path="res://Assets/Blender/Shed.glb" id="9_vi4ic"]
 [ext_resource type="PackedScene" uid="uid://cp8l1ix1w31un" path="res://Assets/Blender/betterhouse.glb" id="10_fdg3w"]
 [ext_resource type="PackedScene" uid="uid://cy6d6454ak8qs" path="res://Scenes/fueltank.tscn" id="10_j6diw"]
 [ext_resource type="PackedScene" uid="uid://qo48vqwik20d" path="res://Assets/Blender/tree.blend" id="11_m004l"]
+[ext_resource type="PackedScene" uid="uid://3a5pt7iv3xck" path="res://Scenes/tv.tscn" id="12_7e4bs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -28,10 +29,12 @@ volumetric_fog_enabled = true
 size = Vector3(1, 5.79645, 65.5977)
 
 [node name="Level" type="Node3D"]
+script = ExtResource("1_01a51")
 
 [node name="player" parent="." instance=ExtResource("2_wmlmx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7203, 0.643545, 1.32248)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.29725, -0.0351515, -0.0089854)
 floor_max_angle = 1.23569
+crouching = true
 
 [node name="Doors" type="Node" parent="."]
 
@@ -56,9 +59,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, -
 
 [node name="Shed Door" parent="Shed" instance=ExtResource("4_awk8q")]
 transform = Transform3D(1.00836, 0, 0, 0, 1, 0, 0, 0, 1, 3.99654, 0.00954989, 0.275877)
-
-[node name="tv" parent="." instance=ExtResource("8_fvkm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155, 0, 0.42)
 
 [node name="House" parent="." instance=ExtResource("10_fdg3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
@@ -104,25 +104,12 @@ spot_angle = 72.28
 spot_angle_attenuation = 0.554784
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -17.0024, 3.63548, -18.6734)
+transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -17.0024, 3.63548, -19.5314)
 light_color = Color(0.864803, 0.871976, 0.480517, 1)
-light_energy = 0.515
-light_volumetric_fog_energy = 16.0
+light_energy = 4.194
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
-spot_range = 5.747
-spot_attenuation = 0.6
-spot_angle = 34.1
-spot_angle_attenuation = 0.554784
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Enviroment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92714, 3.13678, -1.82165)
-visible = false
-light_indirect_energy = 17.365
-light_negative = true
-shadow_enabled = true
-shadow_blur = 0.0
-distance_fade_enabled = true
-omni_range = 6.864
+spot_angle = 38.02
 
 [node name="tree" parent="." instance=ExtResource("11_m004l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1538, -0.0405241, -39.4961)
@@ -144,3 +131,6 @@ shape = SubResource("BoxShape3D_tbqnj")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-0.000558539, 0, -1, 0, 1, 0, 1, 0, -0.000558539, -0.543894, 2.39822, 28.8069)
 shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="TV" parent="." instance=ExtResource("12_7e4bs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73265, 0.774483, 0.0244647)
