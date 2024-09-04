@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfiyw301l27ge"]
+
+[ext_resource type="PackedScene" uid="uid://ceopsjsnv58u8" path="res://Assets/Blender/torch.glb" id="2_d6ggo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4k24w"]
+
+[node name="torchpickup" type="StaticBody3D" groups=["torch"]]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." groups=["torch"]]
+transform = Transform3D(0.37, 0, 0, 0, -1.61732e-08, -0.37, 0, 0.37, -1.61732e-08, -0.00422135, 0.00102988, -0.0679844)
+shape = SubResource("CapsuleShape3D_4k24w")
+
+[node name="door" type="Area3D" parent="." groups=["torch"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000489533, -5.96046e-08, -0.00196344)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="door" groups=["torch"]]
+transform = Transform3D(0.37, 0, 0, 0, -1.61732e-08, -0.37, 0, 0.37, -1.61732e-08, -0.00348812, 0.00103, -0.0640285)
+shape = SubResource("CapsuleShape3D_4k24w")
+
+[node name="torch" parent="door" groups=["torch"] instance=ExtResource("2_d6ggo")]
