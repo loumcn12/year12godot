@@ -1,7 +1,27 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=3 uid="uid://l55gt1wnx5n0"]
+=======
+[gd_scene load_steps=20 format=3 uid="uid://l55gt1wnx5n0"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://cyqt18wbb5ljl" path="res://Blender/betterhouse.blend" id="2_8pouo"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/Doors/door.tscn" id="3_w4fpq"]
+[ext_resource type="PackedScene" uid="uid://dse1b4xwequem" path="res://Scenes/Doors/doorshed.tscn" id="4_awk8q"]
+[ext_resource type="PackedScene" uid="uid://bacg3obqrhs6j" path="res://Scenes/Doors/door2.tscn" id="4_oxeqs"]
+[ext_resource type="PackedScene" uid="uid://baxjixsvj8iho" path="res://Scenes/Doors/door3.tscn" id="5_k7i6l"]
+[ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
+[ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="9_sekky"]
+[ext_resource type="PackedScene" uid="uid://bcl6vystd07vf" path="res://Assets/Blender/Shed.glb" id="9_vi4ic"]
+[ext_resource type="PackedScene" uid="uid://cp8l1ix1w31un" path="res://Assets/Blender/betterhouse.glb" id="10_fdg3w"]
+[ext_resource type="PackedScene" uid="uid://cy6d6454ak8qs" path="res://Scenes/fueltank.tscn" id="10_j6diw"]
+[ext_resource type="PackedScene" uid="uid://qo48vqwik20d" path="res://Assets/Blender/tree.blend" id="11_m004l"]
+[ext_resource type="PackedScene" uid="uid://3a5pt7iv3xck" path="res://Scenes/tv.tscn" id="12_7e4bs"]
+[ext_resource type="AudioStream" uid="uid://dkrq86r01341s" path="res://Assets/sounds/FNAF1 sound/powerdown.wav" id="12_oykhn"]
+[ext_resource type="PackedScene" uid="uid://cfiyw301l27ge" path="res://Scenes/Doors/torchpickup.tscn" id="13_hr6qf"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -18,7 +38,55 @@ sky = SubResource("Sky_fy2j0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
 floor_max_angle = 1.23569
 
+<<<<<<< Updated upstream
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+=======
+[node name="Doors" type="Node" parent="."]
+
+[node name="Front Door" parent="Doors" instance=ExtResource("3_w4fpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.70554)
+visible = false
+
+[node name="Bedroom Door" parent="Doors" instance=ExtResource("4_oxeqs")]
+transform = Transform3D(0.867739, 0, 0, 0, 1, 0, 0, 0, 1, 0.297907, -0.0221041, -2.8179)
+
+[node name="Garage Door" parent="Doors" instance=ExtResource("4_oxeqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286289, -0.0221041, 3.08288)
+
+[node name="Bathroom Door" parent="Doors" instance=ExtResource("5_k7i6l")]
+transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.281367, 0, -0.980426)
+
+[node name="Back Door" parent="Doors" instance=ExtResource("6_8eed4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618185, -0.000224859, -6.96052)
+
+[node name="Shed" parent="." instance=ExtResource("9_vi4ic")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, -0.422775, -24.0254)
+
+[node name="Shed Door" parent="Shed" instance=ExtResource("4_awk8q")]
+transform = Transform3D(1.00836, 0, 0, 0, 1, 0, 0, 0, 1, 3.99654, 0.00954989, 0.275877)
+visible = false
+
+[node name="House" parent="." instance=ExtResource("10_fdg3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
+
+[node name="Gas Canisters" type="Node" parent="."]
+
+[node name="gascan" parent="Gas Canisters" instance=ExtResource("9_sekky")]
+transform = Transform3D(-0.082269, 0, -0.99661, 0, 1, 0, 0.99661, 0, -0.082269, -16.2432, 0.0402002, -19.4612)
+
+[node name="fueltank" parent="Gas Canisters" instance=ExtResource("10_j6diw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.3757, 0.293109, -27.271)
+
+[node name="gascan2" parent="Gas Canisters" instance=ExtResource("9_sekky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21237, 0.375225, 2.55235)
+
+[node name="gascan3" parent="Gas Canisters" instance=ExtResource("9_sekky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88958, 0.0401992, 2.86605)
+
+[node name="Enviroment" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
+>>>>>>> Stashed changes
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -29,5 +97,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.482058, 0)
 use_collision = true
 size = Vector3(100, 0.25, 100)
 
+<<<<<<< Updated upstream
 [node name="betterhouse" parent="." instance=ExtResource("2_8pouo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
+=======
+[node name="SpotLight3D" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -2.56975, 3.49516, 0)
+light_color = Color(0.864803, 0.871976, 0.480517, 1)
+light_energy = 0.515
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+spot_range = 91.945
+spot_attenuation = -1.22
+spot_angle = 72.28
+spot_angle_attenuation = 0.554784
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -17.0024, 3.63548, -19.5314)
+light_color = Color(0.864803, 0.871976, 0.480517, 1)
+light_energy = 4.194
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_angle = 38.02
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97571, 2.75093, 0)
+stream = ExtResource("12_oykhn")
+
+[node name="torchpickup" parent="Enviroment" instance=ExtResource("13_hr6qf")]
+transform = Transform3D(0.535338, 0, 0, 0, 0.535338, 0, 0, 0, 0.535338, -4.98352, 1.11175, -6.34267)
+visible = false
+
+[node name="tree" parent="." instance=ExtResource("11_m004l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1538, -0.0405241, -39.4961)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.9447, 2.39822, 0.204834)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.9467, 2.39822, 0.204834)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.000558539, 0, -1, 0, 1, 0, 1, 0, -0.000558539, -0.511366, 2.39822, -29.1559)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.000558539, 0, -1, 0, 1, 0, 1, 0, -0.000558539, -0.543894, 2.39822, 28.8069)
+shape = SubResource("BoxShape3D_tbqnj")
+
+[node name="TV" parent="." instance=ExtResource("12_7e4bs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73265, 0.774483, 0.0244647)
+visible = false
+>>>>>>> Stashed changes

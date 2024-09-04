@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://de6kga6b3pbch"
+path="res://.godot/imported/OVEN-DRA_1_GEN-HDF18119.wav-ee08e33651d30c1380c493408c45265c.sample"
+
+[deps]
+
+source_file="res://Assets/sounds/FNAF1 sound/OVEN-DRA_1_GEN-HDF18119.wav"
+dest_files=["res://.godot/imported/OVEN-DRA_1_GEN-HDF18119.wav-ee08e33651d30c1380c493408c45265c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

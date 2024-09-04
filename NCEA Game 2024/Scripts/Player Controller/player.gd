@@ -9,6 +9,19 @@ extends CharacterBody3D
 @onready var standing_collision_shape = $standing_collision_shape
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var uncrouch_check = $uncrouch_check
+<<<<<<< Updated upstream
+=======
+@onready var ray = $neck/Head/eyes/Camera3D/interaction_check
+@onready var interaction_notifier = $Control/interaction_notifier
+@onready var gascan_notifier = $Control/gascan_notifier
+@onready var fueltank_notifier = $Control/fueltank_notifier
+@onready var locked_door = $Control/locked_door
+@onready var lock_door = $Control/lock_door
+@onready var unlock_door = $Control/unlock_door
+@onready var torchlight = $neck/Head/eyes/SpotLight3D
+@onready var torchnotifier = $Control/torchnotifier
+@onready var torch = $neck/Head/eyes/torch
+>>>>>>> Stashed changes
 
 # Speed variables
 var current_speed = 5.0
@@ -20,6 +33,12 @@ var walking = false
 var crouching = false
 var sliding = false
 var can_doublejump = true
+<<<<<<< Updated upstream
+=======
+var holding_gascan = false
+@export var torch_on = false
+var holding_torch = false
+>>>>>>> Stashed changes
 
 # Head bobbing vars
 const head_bobbing_walking_speed = 14.0
@@ -46,17 +65,108 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
+<<<<<<< Updated upstream
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+=======
+	$LoadingLabel.visible = true
+	$LoadingScreen.visible = true
+	torchlight.visible = torch_on
+	var os = OS.get_model_name()
+	if os != "Web":
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
+	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+		
+	await get_tree().create_timer(1.2).timeout
+	$LoadingLabel.visible = false
+	$LoadingScreen.visible = false
+	await get_tree().create_timer(15).timeout
+	can_move = true
+		
+>>>>>>> Stashed changes
 func _input(event):
 	# Make the camera movement match mouse movement
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+<<<<<<< Updated upstream
+=======
+
+func _check_ray_hit():
+	
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		if collider:
+			if collider.is_in_group("door") and !collider.door_locked:
+				interaction_notifier.visible = true
+				
+				if Input.is_action_just_pressed("use") :
+					collider.open_door()
+			elif collider.is_in_group("door") and collider.door_locked:
+				locked_door.visible = true
+			elif collider.is_in_group("gascan") and !holding_gascan:
+				gascan_notifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					holding_gascan = true
+					collider.queue_free()
+					
+			elif collider.is_in_group("fueltank") and holding_gascan:
+				fueltank_notifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					holding_gascan = false
+					fueltank_notifier.visible = false
+					gascount = gascount + 1
+					$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+			
+			elif collider.is_in_group("torch"):
+				torchnotifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					holding_torch = true
+					torchnotifier.visible = false
+					
+			
+			else:
+				fueltank_notifier.visible = false
+				gascan_notifier.visible = false
+				locked_door.visible = false
+				interaction_notifier.visible = false
+	
+	else:
+		interaction_notifier.visible = false
+		fueltank_notifier.visible = false
+		gascan_notifier.visible = false
+		locked_door.visible = false
+		lock_door.visible = false
+		unlock_door.visible = false
+
+>>>>>>> Stashed changes
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+<<<<<<< Updated upstream
 			
+=======
+	
+	if Input.is_action_just_pressed("torch") && holding_torch:
+		torch_on = !torch_on
+		torchlight.visible = torch_on
+	
+	if holding_gascan:
+		$gascan.visible = true
+	else:
+		$gascan.visible = false
+		
+	if holding_torch:
+		torch.visible = true
+	else:
+		torch.visible = false
+		
+>>>>>>> Stashed changes
 	# Handle crouching
 	if (Input.is_action_pressed("crouch") && is_on_floor()) || sliding:
 		# Crouching	

@@ -1,5 +1,13 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://bxrl4bqkmswtx"]
 
+=======
+[gd_scene load_steps=9 format=3 uid="uid://bxrl4bqkmswtx"]
+
+[ext_resource type="PackedScene" uid="uid://ceopsjsnv58u8" path="res://Assets/Blender/torch.glb" id="2_6h8fe"]
+[ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
+[ext_resource type="Shader" path="res://Assets/hdris/pixellation.gdshader" id="3_5ein4"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tevmw"]
@@ -31,3 +39,185 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(1, 0, 0, 0, 0.994656, -0.103244, 0, 0.103244, 0.994656, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="neck/Head/eyes"]
+<<<<<<< Updated upstream
+=======
+
+[node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
+target_position = Vector3(0, 0, -1.5)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="neck/Head/eyes"]
+transform = Transform3D(1, 0, 0, 0, 0.994656, 0.103244, 0, -0.103244, 0.994656, 0.00289121, -0.00775135, 0.000804573)
+light_color = Color(0.62236, 0.536688, 0.211059, 1)
+light_energy = 6.163
+shadow_enabled = true
+
+[node name="torch" parent="neck/Head/eyes" instance=ExtResource("2_6h8fe")]
+transform = Transform3D(0.944158, 0.0340182, 0.327732, -0.0340182, 0.999405, -0.00573447, -0.327732, -0.0057346, 0.944753, -0.666301, -0.666928, -0.730228)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="interaction_notifier" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "Press E to open/close door"
+
+[node name="torchnotifier" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "Press E to pick up torch"
+
+[node name="gascan_notifier" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "Press E to pick up fuel canister"
+
+[node name="fueltank_notifier" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "Press E to deposit fuel canister"
+
+[node name="gascounter" type="Label" parent="Control"]
+layout_mode = 1
+offset_right = 281.0
+offset_bottom = 23.0
+mouse_force_pass_scroll_events = false
+text = "You have collected 0/3 fuel canisters"
+
+[node name="locked_door" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Door is locked. Find another way in!"
+
+[node name="lock_door" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press F to Lock Door"
+
+[node name="unlock_door" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press F to Unlock Door"
+
+[node name="gascan" parent="." instance=ExtResource("2_f7xrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368934, 0.676157, -1.10868)
+visible = false
+
+[node name="LoadingScreen" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(966.25, 544.75)
+scale = Vector2(1933.5, 1090.5)
+texture = SubResource("CanvasTexture_dwex6")
+
+[node name="LoadingLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -62.0
+offset_right = -99.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.32, 5.32)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_p1eqk")
+offset_right = 1922.0
+offset_bottom = 1082.0
+metadata/_edit_use_anchors_ = true
+>>>>>>> Stashed changes

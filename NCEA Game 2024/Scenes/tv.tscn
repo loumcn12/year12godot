@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://3a5pt7iv3xck"]
+
+[ext_resource type="Script" path="res://scripts/tv.gd" id="1_02rwk"]
+[ext_resource type="PackedScene" uid="uid://ckhi5rrwj1rmk" path="res://Assets/Blender/tv.glb" id="1_f61go"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m8n0p"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvoqu"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_m8n0p")
+
+[sub_resource type="QuadMesh" id="QuadMesh_narqx"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_3svet"]
+file = "res://Assets/videos/Untitled ‑ Made with FlexClip.ogv"
+
+[node name="TV" type="Node3D"]
+script = ExtResource("1_02rwk")
+
+[node name="tv" parent="." instance=ExtResource("1_f61go")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.20839, 0, 0, 0, 1.24924, 0, 0, 0, 1, 0, 0.776964, 0)
+material_override = SubResource("StandardMaterial3D_xvoqu")
+mesh = SubResource("QuadMesh_narqx")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = SubResource("VideoStreamTheora_3svet")
