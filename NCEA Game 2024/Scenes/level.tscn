@@ -103,6 +103,17 @@ spot_attenuation = -1.22
 spot_angle = 72.28
 spot_angle_attenuation = 0.554784
 
+[node name="SpotLight3D2" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -17.0024, 3.63548, -18.6734)
+light_color = Color(0.864803, 0.871976, 0.480517, 1)
+light_energy = 0.515
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+spot_range = 5.747
+spot_attenuation = 0.6
+spot_angle = 34.1
+spot_angle_attenuation = 0.554784
+
 [node name="OmniLight3D" type="OmniLight3D" parent="Enviroment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92714, 3.13678, -1.82165)
 visible = false

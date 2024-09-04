@@ -39,6 +39,12 @@ transform = Transform3D(1, 0, 0, 0, 0.994656, -0.103244, 0, 0.103244, 0.994656, 
 [node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
 target_position = Vector3(0, 0, -1.5)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="neck/Head/eyes"]
+transform = Transform3D(1, 0, 0, 0, 0.994656, 0.103244, 0, -0.103244, 0.994656, 0.00289121, -0.00775135, 0.000804573)
+light_color = Color(0.62236, 0.536688, 0.211059, 1)
+light_energy = 6.163
+shadow_enabled = true
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
