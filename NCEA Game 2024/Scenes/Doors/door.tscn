@@ -42,7 +42,7 @@ _data = {
 "RESET": SubResource("Animation_0dgac")
 }
 
-[node name="Node3D" type="StaticBody3D" groups=["door"]]
+[node name="Node3D2" type="StaticBody3D" groups=["door"]]
 script = ExtResource("1_0g7ym")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["door"]]

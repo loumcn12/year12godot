@@ -42,7 +42,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c4jj"]
 size = Vector3(1.54245, 2.58636, 0.40448)
 
-[node name="Node3D" type="StaticBody3D" groups=["door"]]
+[node name="Node3D2" type="StaticBody3D" groups=["door"]]
 script = ExtResource("1_f4hcj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

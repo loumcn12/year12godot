@@ -186,7 +186,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and !uncrouch_check.is_colliding():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and !uncrouch_check.is_colliding() and can_move:
 		velocity.y = jump_velocity
 		sliding = false
 

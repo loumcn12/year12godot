@@ -11,9 +11,12 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_m8n0p")
 
-[sub_resource type="QuadMesh" id="QuadMesh_narqx"]
+[sub_resource type="QuadMesh" id="QuadMesh_61x38"]
+resource_local_to_scene = true
+size = Vector2(2.215, 1.275)
 
 [sub_resource type="VideoStreamTheora" id="VideoStreamTheora_3svet"]
+resource_local_to_scene = true
 file = "res://Assets/videos/Untitled ‑ Made with FlexClip.ogv"
 
 [node name="TV" type="Node3D"]
@@ -22,9 +25,9 @@ script = ExtResource("1_02rwk")
 [node name="tv" parent="." instance=ExtResource("1_f61go")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.20839, 0, 0, 0, 1.24924, 0, 0, 0, 1, 0, 0.776964, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.776964, 0)
 material_override = SubResource("StandardMaterial3D_xvoqu")
-mesh = SubResource("QuadMesh_narqx")
+mesh = SubResource("QuadMesh_61x38")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(1280, 720)
