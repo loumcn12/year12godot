@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://i0wk7g647skx"
+path="res://.godot/imported/voiceover3.wav-d494fad2c51b6346d621a6d56a110e1c.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/voiceover3.wav"
+dest_files=["res://.godot/imported/voiceover3.wav-d494fad2c51b6346d621a6d56a110e1c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

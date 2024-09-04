@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dyn4dbfx00fa2"
+path="res://.godot/imported/DOOR_POUNDING_ME_D0291401.wav-f5f6ef3ef55ea99c1e103cd20ecd4550.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/DOOR_POUNDING_ME_D0291401.wav"
+dest_files=["res://.godot/imported/DOOR_POUNDING_ME_D0291401.wav-f5f6ef3ef55ea99c1e103cd20ecd4550.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

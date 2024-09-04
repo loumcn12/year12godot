@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxrl4bqkmswtx"]
+[gd_scene load_steps=9 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
+[ext_resource type="PackedScene" uid="uid://bl7fe1ukuiy60" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
 [ext_resource type="Shader" path="res://Assets/hdris/pixellation.gdshader" id="3_5ein4"]
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
 
@@ -49,6 +50,9 @@ light_color = Color(0.62236, 0.536688, 0.211059, 1)
 light_energy = 6.163
 shadow_enabled = true
 
+[node name="torch" parent="neck/Head/eyes" instance=ExtResource("2_r6xpi")]
+transform = Transform3D(0.47, 0, 0, 0, 0.467488, 0.0485247, 0, -0.0485247, 0.467488, -0.256414, -0.371725, -0.551194)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -73,6 +77,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_force_pass_scroll_events = false
 text = "Press E to open/close door"
+
+[node name="torchnotifier" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "Press E to pick up torch"
 
 [node name="gascan_notifier" type="Label" parent="Control"]
 visible = false

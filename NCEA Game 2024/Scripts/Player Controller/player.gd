@@ -16,7 +16,9 @@ extends CharacterBody3D
 @onready var locked_door = $Control/locked_door
 @onready var lock_door = $Control/lock_door
 @onready var unlock_door = $Control/unlock_door
-@onready var torch = $neck/Head/eyes/SpotLight3D
+@onready var torchlight = $neck/Head/eyes/SpotLight3D
+@onready var torch = $neck/Head/eyes/torch
+@onready var torchnotifier = $Control/torchnotifier
 
 # Speed variables
 var current_speed = 5.0
@@ -31,6 +33,7 @@ var walking = false
 var sliding = false
 var can_doublejump = true
 var holding_gascan = false
+var holding_torch = false
 @export var torch_on = false
 
 # Head bobbing vars
@@ -62,7 +65,7 @@ func _ready():
 	# Make the mouse cursor invisible and locked to the centre of the screen
 	$LoadingLabel.visible = true
 	$LoadingScreen.visible = true
-	torch.visible = torch_on
+	torchlight.visible = torch_on
 	var os = OS.get_model_name()
 	if os != "Web":
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -112,6 +115,13 @@ func _check_ray_hit():
 					fueltank_notifier.visible = false
 					gascount = gascount + 1
 					$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+			elif collider.is_in_group("torch"):
+				torchnotifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					holding_torch = true
+					torchnotifier.visible = false
+					collider.queue_free()
 			else:
 				fueltank_notifier.visible = false
 				gascan_notifier.visible = false
@@ -131,14 +141,19 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	
-	if Input.is_action_just_pressed("torch"):
+	if Input.is_action_just_pressed("torch") and holding_torch:
 		torch_on = !torch_on
-		torch.visible = torch_on
+		torchlight.visible = torch_on
 	
 	if holding_gascan:
 		$gascan.visible = true
 	else:
 		$gascan.visible = false
+		
+	if holding_torch:
+		torch.visible = true
+	else:
+		torch.visible = false
 	# Handle crouching
 	if (Input.is_action_pressed("crouch") && is_on_floor()) and can_move:
 		crouching = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=20 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cy6d6454ak8qs" path="res://Scenes/fueltank.tscn" id="10_j6diw"]
 [ext_resource type="PackedScene" uid="uid://qo48vqwik20d" path="res://Assets/Blender/tree.blend" id="11_m004l"]
 [ext_resource type="PackedScene" uid="uid://3a5pt7iv3xck" path="res://Scenes/tv.tscn" id="12_7e4bs"]
+[ext_resource type="AudioStream" uid="uid://bnsqdl47f85x8" path="res://Assets/audio/FNAF1 sound/powerdown.wav" id="12_xhbu4"]
+[ext_resource type="PackedScene" uid="uid://bm0angf0cc252" path="res://Scenes/torchpickup.tscn" id="13_em3cq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -110,6 +112,12 @@ light_energy = 4.194
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 spot_angle = 38.02
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enviroment"]
+stream = ExtResource("12_xhbu4")
+
+[node name="torchpickup" parent="Enviroment" instance=ExtResource("13_em3cq")]
+transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, -4.99649, 1.14279, -6.33909)
 
 [node name="tree" parent="." instance=ExtResource("11_m004l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1538, -0.0405241, -39.4961)

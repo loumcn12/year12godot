@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cttqtpxt0xa3u"
+path="res://.godot/imported/CROWD_SMALL_CHIL_EC049202.wav-7f3cc52ac8725b29b65c99755e8d04f5.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/CROWD_SMALL_CHIL_EC049202.wav"
+dest_files=["res://.godot/imported/CROWD_SMALL_CHIL_EC049202.wav-7f3cc52ac8725b29b65c99755e8d04f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
