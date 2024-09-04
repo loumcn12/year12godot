@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bi5qqdmedh2ie"
+path="res://.godot/imported/static2.wav-31dd733cb497abb0b426df48b30fc033.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/static2.wav"
+dest_files=["res://.godot/imported/static2.wav-31dd733cb497abb0b426df48b30fc033.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

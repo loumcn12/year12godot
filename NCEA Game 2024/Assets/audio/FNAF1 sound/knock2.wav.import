@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://he10d12je6hn"
+path="res://.godot/imported/knock2.wav-26921efa483e520096214a89f6cdd126.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/knock2.wav"
+dest_files=["res://.godot/imported/knock2.wav-26921efa483e520096214a89f6cdd126.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

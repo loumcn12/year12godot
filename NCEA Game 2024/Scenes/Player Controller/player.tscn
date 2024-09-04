@@ -1,19 +1,20 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=4 format=3 uid="uid://bxrl4bqkmswtx"]
-
-=======
 [gd_scene load_steps=9 format=3 uid="uid://bxrl4bqkmswtx"]
 
-[ext_resource type="PackedScene" uid="uid://ceopsjsnv58u8" path="res://Assets/Blender/torch.glb" id="2_6h8fe"]
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
+[ext_resource type="PackedScene" uid="uid://bl7fe1ukuiy60" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
 [ext_resource type="Shader" path="res://Assets/hdris/pixellation.gdshader" id="3_5ein4"]
->>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tevmw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m04g1"]
 height = 1.2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dwex6"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p1eqk"]
+shader = ExtResource("3_5ein4")
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("3_vlw48")
@@ -39,8 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(1, 0, 0, 0, 0.994656, -0.103244, 0, 0.103244, 0.994656, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="neck/Head/eyes"]
-<<<<<<< Updated upstream
-=======
 
 [node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
 target_position = Vector3(0, 0, -1.5)
@@ -51,8 +50,8 @@ light_color = Color(0.62236, 0.536688, 0.211059, 1)
 light_energy = 6.163
 shadow_enabled = true
 
-[node name="torch" parent="neck/Head/eyes" instance=ExtResource("2_6h8fe")]
-transform = Transform3D(0.944158, 0.0340182, 0.327732, -0.0340182, 0.999405, -0.00573447, -0.327732, -0.0057346, 0.944753, -0.666301, -0.666928, -0.730228)
+[node name="torch" parent="neck/Head/eyes" instance=ExtResource("2_r6xpi")]
+transform = Transform3D(0.47, 0, 0, 0, 0.467488, 0.0485247, 0, -0.0485247, 0.467488, -0.256414, -0.371725, -0.551194)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -220,4 +219,3 @@ material = SubResource("ShaderMaterial_p1eqk")
 offset_right = 1922.0
 offset_bottom = 1082.0
 metadata/_edit_use_anchors_ = true
->>>>>>> Stashed changes

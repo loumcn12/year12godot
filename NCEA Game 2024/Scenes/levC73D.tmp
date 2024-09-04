@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://l55gt1wnx5n0"]
+
+[ext_resource type="PackedScene" uid="uid://cyqt18wbb5ljl" path="res://Blender/betterhouse.blend" id="2_8pouo"]
+[ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
+[ext_resource type="PackedScene" uid="uid://ddx8ykkglesn2" path="res://Scenes/Doors/door.tscn" id="3_w4fpq"]
+[ext_resource type="PackedScene" uid="uid://dse1b4xwequem" path="res://Scenes/Doors/doorshed.tscn" id="4_awk8q"]
+[ext_resource type="PackedScene" uid="uid://bacg3obqrhs6j" path="res://Scenes/Doors/door2.tscn" id="4_oxeqs"]
+[ext_resource type="PackedScene" uid="uid://baxjixsvj8iho" path="res://Scenes/Doors/door3.tscn" id="5_k7i6l"]
+[ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
+[ext_resource type="PackedScene" uid="uid://dtncl3s3civpp" path="res://Blender/Shed.blend" id="7_ksg17"]
+[ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="9_sekky"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
+
+[sub_resource type="Sky" id="Sky_fy2j0"]
+sky_material = SubResource("ProceduralSkyMaterial_7saj8")
+
+[sub_resource type="Environment" id="Environment_lme4c"]
+background_mode = 2
+sky = SubResource("Sky_fy2j0")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("2_wmlmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0187, 2.98023e-08, 1.32248)
+floor_max_angle = 1.23569
+walking_speed = 5.0
+crouching_speed = 3.0
+jump_velocity = 4.5
+mouse_sens = 0.25
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lme4c")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.799533, 0, 0, 0, 1, 0, 0, 0, 0.787618, 0, -0.503399, 0)
+use_collision = true
+size = Vector3(100, 0.25, 100)
+
+[node name="betterhouse" parent="." instance=ExtResource("2_8pouo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198555, 0, 0.464195)
+
+[node name="Shed" parent="." instance=ExtResource("7_ksg17")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.8963, -0.357058, -23.8888)
+
+[node name="Shed Door" parent="Shed" instance=ExtResource("4_awk8q")]
+transform = Transform3D(1.00836, 0, 0, 0, 1, 0, 0, 0, 1, 3.9936, 0.0115753, 0.261238)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Front Door" parent="Doors" instance=ExtResource("3_w4fpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36589, -0.0213304, 5.70554)
+
+[node name="Bedroom Door" parent="Doors" instance=ExtResource("4_oxeqs")]
+transform = Transform3D(0.867739, 0, 0, 0, 1, 0, 0, 0, 1, 0.297907, -0.0221041, -2.8179)
+
+[node name="Garage Door" parent="Doors" instance=ExtResource("4_oxeqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286289, -0.0221041, 3.08288)
+door_locked = true
+
+[node name="Bathroom Door" parent="Doors" instance=ExtResource("5_k7i6l")]
+transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.281367, 0, -0.980426)
+
+[node name="Back Door" parent="Doors" instance=ExtResource("6_8eed4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618185, -0.000224859, -6.96052)
+
+[node name="gascan" parent="." instance=ExtResource("9_sekky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0736, -0.378399, -3.22715)

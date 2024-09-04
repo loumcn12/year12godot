@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cit0q8b1alcfi"
+path="res://.godot/imported/circus.wav-65593a76e8337704736f242d1550eb13.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/circus.wav"
+dest_files=["res://.godot/imported/circus.wav-65593a76e8337704736f242d1550eb13.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

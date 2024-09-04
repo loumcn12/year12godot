@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -1.5708, 0), Vector3(0, -3.83972, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 2.22879, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_0dgac"]
@@ -42,7 +42,7 @@ _data = {
 "RESET": SubResource("Animation_0dgac")
 }
 
-[node name="Node3D" type="StaticBody3D" groups=["door"]]
+[node name="Node3D2" type="StaticBody3D" groups=["door"]]
 script = ExtResource("1_0g7ym")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["door"]]

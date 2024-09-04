@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhmw4kohlf44o"
+path="res://.godot/imported/garble2.wav-ef614c57044026db06da546a7a747e21.sample"
+
+[deps]
+
+source_file="res://Assets/audio/FNAF1 sound/garble2.wav"
+dest_files=["res://.godot/imported/garble2.wav-ef614c57044026db06da546a7a747e21.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

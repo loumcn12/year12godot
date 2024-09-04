@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm0angf0cc252"]
+
+[ext_resource type="PackedScene" uid="uid://bl7fe1ukuiy60" path="res://Assets/Blender/torch.glb" id="1_mso81"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdt0w"]
+size = Vector3(1, 1, 2.6528)
+
+[node name="torchpickup" type="StaticBody3D" groups=["torch"]]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." groups=["torch"]]
+transform = Transform3D(0.249221, 0, 0, 0, 0.249221, 0, 0, 0, 0.249221, 0, 0, -0.0448311)
+shape = SubResource("BoxShape3D_qdt0w")
+
+[node name="Area3D" type="Area3D" parent="." groups=["torch"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["torch"]]
+transform = Transform3D(0.249221, 0, 0, 0, 0.249221, 0, 0, 0, 0.249221, 0, 0, -0.0448311)
+shape = SubResource("BoxShape3D_qdt0w")
+
+[node name="torch" parent="Area3D" groups=["torch"] instance=ExtResource("1_mso81")]
