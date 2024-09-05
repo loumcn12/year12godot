@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
-[ext_resource type="PackedScene" uid="uid://bl7fe1ukuiy60" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
+[ext_resource type="PackedScene" uid="uid://cvemen72hd8iw" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
 [ext_resource type="Shader" path="res://Assets/hdris/pixellation.gdshader" id="3_5ein4"]
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
 

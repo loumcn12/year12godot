@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://baxjixsvj8iho" path="res://Scenes/Doors/door3.tscn" id="5_k7i6l"]
 [ext_resource type="PackedScene" uid="uid://csk5oig2bgcf1" path="res://Scenes/Doors/door4.tscn" id="6_8eed4"]
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="9_sekky"]
-[ext_resource type="PackedScene" uid="uid://bcl6vystd07vf" path="res://Assets/Blender/Shed.glb" id="9_vi4ic"]
-[ext_resource type="PackedScene" uid="uid://cp8l1ix1w31un" path="res://Assets/Blender/betterhouse.glb" id="10_fdg3w"]
+[ext_resource type="PackedScene" uid="uid://ie63x8nakt75" path="res://Assets/Blender/Shed.glb" id="9_vi4ic"]
+[ext_resource type="PackedScene" uid="uid://b4u7voceqohpl" path="res://Assets/Blender/betterhouse.glb" id="10_fdg3w"]
 [ext_resource type="PackedScene" uid="uid://cy6d6454ak8qs" path="res://Scenes/fueltank.tscn" id="10_j6diw"]
-[ext_resource type="PackedScene" uid="uid://qo48vqwik20d" path="res://Assets/Blender/tree.blend" id="11_m004l"]
+[ext_resource type="PackedScene" uid="uid://cokrotq2ey1cb" path="res://Assets/Blender/tree.blend" id="11_m004l"]
 [ext_resource type="PackedScene" uid="uid://3a5pt7iv3xck" path="res://Scenes/tv.tscn" id="12_7e4bs"]
 [ext_resource type="AudioStream" uid="uid://bnsqdl47f85x8" path="res://Assets/audio/FNAF1 sound/powerdown.wav" id="12_xhbu4"]
 [ext_resource type="PackedScene" uid="uid://bm0angf0cc252" path="res://Scenes/torchpickup.tscn" id="13_em3cq"]
@@ -23,7 +23,7 @@ sky_material = SubResource("ProceduralSkyMaterial_7saj8")
 
 [sub_resource type="Environment" id="Environment_lme4c"]
 background_mode = 2
-background_energy_multiplier = 0.1
+background_energy_multiplier = 0.33
 sky = SubResource("Sky_fy2j0")
 volumetric_fog_enabled = true
 
