@@ -30,6 +30,7 @@ material_override = SubResource("StandardMaterial3D_xvoqu")
 mesh = SubResource("QuadMesh_61x38")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
 size = Vector2i(1280, 720)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport"]
