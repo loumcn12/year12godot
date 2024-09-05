@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfiyw301l27ge"]
 
-[ext_resource type="PackedScene" uid="uid://ceopsjsnv58u8" path="res://Assets/Blender/torch.glb" id="2_d6ggo"]
+[ext_resource type="PackedScene" uid="uid://cvemen72hd8iw" path="res://Assets/Blender/torch.glb" id="2_d6ggo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4k24w"]
 

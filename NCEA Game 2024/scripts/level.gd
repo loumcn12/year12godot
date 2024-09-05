@@ -16,7 +16,8 @@ func _powerdown():
 	if powerdown:
 		$Enviroment/AudioStreamPlayer3D.play()
 		powerdown = false
-func _physics_process(delta):
+		
+func _physics_process(_delta):
 	
 	if phase == 1:
 		$Enviroment/SpotLight3D.visible = true

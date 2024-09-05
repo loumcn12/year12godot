@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3a5pt7iv3xck"]
 
 [ext_resource type="Script" path="res://scripts/tv.gd" id="1_02rwk"]
-[ext_resource type="PackedScene" uid="uid://ckhi5rrwj1rmk" path="res://Assets/Blender/tv.glb" id="1_f61go"]
+[ext_resource type="PackedScene" uid="uid://c7k7ltkugm7vp" path="res://Assets/Blender/tv.glb" id="1_f61go"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m8n0p"]
 viewport_path = NodePath("SubViewport")
