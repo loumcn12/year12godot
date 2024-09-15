@@ -83,8 +83,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.88958, 0.0401992, 2.86605)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50.4236, 0)
-light_color = Color(0.18124, 0.196563, 0.526221, 1)
-light_energy = 0.0
+light_color = Color(0.0404559, 0.156495, 0.266639, 1)
+light_energy = 0.25
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
 environment = SubResource("Environment_lme4c")
@@ -115,6 +115,9 @@ spot_angle = 38.02
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enviroment"]
 stream = ExtResource("12_xhbu4")
+volume_db = -25.0
+max_db = 1.0
+max_distance = 10.0
 
 [node name="torchpickup" parent="Enviroment" instance=ExtResource("13_em3cq")]
 transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, -4.99649, 1.14279, -6.33909)

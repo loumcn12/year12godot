@@ -27,6 +27,7 @@ var current_speed = 5.0
 
 
 # States
+var currentlywalking = false
 var walking = false
 @export var can_move = false
 @export var crouching = false
@@ -37,7 +38,7 @@ var holding_torch = false
 @export var torch_on = false
 
 # Head bobbing vars
-const head_bobbing_walking_speed = 14.0
+const head_bobbing_walking_speed = 5
 const head_bobbing_crouching_speed = 10.0
 var head_bobbing_walking_intensity = 0.1
 var head_bobbing_crouching_intensity = 0.05
@@ -136,7 +137,20 @@ func _check_ray_hit():
 		lock_door.visible = false
 		unlock_door.visible = false
 
+func _walkSound():
+	if Input.is_action_pressed("backward") or Input.is_action_pressed("forward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		currentlywalking = true
+	else:
+		currentlywalking = false
+	if currentlywalking and can_move and $WalkingPlayer.playing == false:
+		$WalkingPlayer.play()
+	elif !currentlywalking:
+		$WalkingPlayer.stop()
+		
 func _physics_process(delta):
+	if $AudioStreamPlayer.playing == false:
+		$AudioStreamPlayer.play()
+	_walkSound()
 	_check_ray_hit()
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
@@ -144,6 +158,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("torch") and holding_torch:
 		torch_on = !torch_on
 		torchlight.visible = torch_on
+		$neck/Head/eyes/torch/AudioStreamPlayer.play()
 	
 	if holding_gascan:
 		$gascan.visible = true
