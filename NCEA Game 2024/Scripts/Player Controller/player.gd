@@ -101,6 +101,8 @@ func _check_ray_hit():
 					collider.open_door()
 			elif collider.is_in_group("door") and collider.door_locked:
 				locked_door.visible = true
+				if Input.is_action_just_pressed("use"):
+					$ErrorPlayer.play()
 			elif collider.is_in_group("gascan") and !holding_gascan:
 				gascan_notifier.visible = true
 				

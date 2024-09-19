@@ -8,10 +8,14 @@ var acceleration = false
 
 
 func _on_back_button_pressed():
+	$AudioStreamPlayer2D.play()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://Scenes/Menus/mainmenu.tscn")
 
 
 func _on_check_button_pressed():
+	$AudioStreamPlayer2D.play()
+	await get_tree().create_timer(0.1).timeout
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
@@ -20,6 +24,8 @@ func _on_check_button_pressed():
 
 
 func _on_button_pressed():
+	$AudioStreamPlayer2D.play()
+	await get_tree().create_timer(0.1).timeout
 	acceleration = !acceleration
 	if acceleration:
 		button.text = "Modular Hardware Acceleration: Off"
@@ -27,6 +33,5 @@ func _on_button_pressed():
 	else:
 		button.text = "Modular Hardware Acceleration: On "
 		$Label.text = "FPS: 300"
-		
-		
+	
 		

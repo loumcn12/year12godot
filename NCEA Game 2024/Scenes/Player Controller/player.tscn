@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxrl4bqkmswtx"]
+[gd_scene load_steps=13 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
 [ext_resource type="PackedScene" uid="uid://cvemen72hd8iw" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
 [ext_resource type="Shader" path="res://Assets/hdris/pixellation.gdshader" id="3_5ein4"]
-[ext_resource type="AudioStream" uid="uid://cttqtpxt0xa3u" path="res://Assets/audio/FNAF1 sound/CROWD_SMALL_CHIL_EC049202.wav" id="3_5vxe7"]
 [ext_resource type="Script" path="res://scripts/Player Controller/player.gd" id="3_vlw48"]
+[ext_resource type="AudioStream" uid="uid://qfvu3jppwb3o" path="res://Assets/audio/FNAF1 sound/blip3.wav" id="3_yvykb"]
 [ext_resource type="AudioStream" uid="uid://c1c3cdwony4ui" path="res://Assets/audio/FNAF1 sound/ambience2.wav" id="5_p3d4y"]
 [ext_resource type="AudioStream" uid="uid://b3it84ahg1kqd" path="res://Assets/audio/FNAF1 sound/deep steps.wav" id="6_lbsb1"]
+[ext_resource type="AudioStream" uid="uid://bax4gaooyw87h" path="res://Assets/audio/FNAF1 sound/error.wav" id="8_a36wq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tevmw"]
 
@@ -59,7 +60,7 @@ shadow_enabled = true
 transform = Transform3D(0.47, 0, 0, 0, 0.467488, 0.0485247, 0, -0.0485247, 0.467488, -0.256414, -0.371725, -0.551194)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="neck/Head/eyes/torch"]
-stream = ExtResource("3_5vxe7")
+stream = ExtResource("3_yvykb")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -234,3 +235,6 @@ volume_db = -10.0
 
 [node name="WalkingPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lbsb1")
+
+[node name="ErrorPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_a36wq")

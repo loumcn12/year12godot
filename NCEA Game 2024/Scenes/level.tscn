@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=21 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -26,6 +26,9 @@ background_mode = 2
 background_energy_multiplier = 0.33
 sky = SubResource("Sky_fy2j0")
 volumetric_fog_enabled = true
+
+[sub_resource type="FogMaterial" id="FogMaterial_vgwr2"]
+emission = Color(0.237539, 0.237539, 0.237539, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tbqnj"]
 size = Vector3(1, 5.79645, 65.5977)
@@ -89,6 +92,11 @@ light_energy = 0.25
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment"]
 environment = SubResource("Environment_lme4c")
 
+[node name="FogVolume" type="FogVolume" parent="Enviroment/WorldEnvironment"]
+transform = Transform3D(2.05745, 0, 0, 0, 1, 0, 0, 0, 1.73366, 2.65454, -0.946048, 0)
+size = Vector3(67.4414, 2, 65.2969)
+material = SubResource("FogMaterial_vgwr2")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="Enviroment"]
 transform = Transform3D(0.799533, 0, 0, 0, 1, 0, 0, 0, 0.787618, 0, -0.503399, 0)
 use_collision = true
@@ -121,6 +129,12 @@ max_distance = 10.0
 
 [node name="torchpickup" parent="Enviroment" instance=ExtResource("13_em3cq")]
 transform = Transform3D(0.71, 0, 0, 0, 0.71, 0, 0, 0, 0.71, -4.99649, 1.14279, -6.33909)
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 38.7669, 0)
+light_energy = 0.0
+light_volumetric_fog_energy = 16.0
+spot_range = 55.29
 
 [node name="tree" parent="." instance=ExtResource("11_m004l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1538, -0.0405241, -39.4961)

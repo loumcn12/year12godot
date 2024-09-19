@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcoyakgktu3da"]
+[gd_scene load_steps=4 format=3 uid="uid://bcoyakgktu3da"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/mainmenu.gd" id="1_y48gk"]
 [ext_resource type="Texture2D" uid="uid://dm7lqfpgjl7pd" path="res://Assets/textures/lastlightbackground.jpg" id="2_qvl7h"]
+[ext_resource type="AudioStream" uid="uid://bax4gaooyw87h" path="res://Assets/audio/FNAF1 sound/error.wav" id="3_nm06l"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -47,6 +48,9 @@ text = "Options"
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nm06l")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
