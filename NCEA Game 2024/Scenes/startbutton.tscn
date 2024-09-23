@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://btv7cexmlwpn5"]
+
+[ext_resource type="PackedScene" uid="uid://tvulk6jia6fa" path="res://Assets/Blender/startbutton.blend" id="1_l3bmx"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="startbutton" parent="." instance=ExtResource("1_l3bmx")]

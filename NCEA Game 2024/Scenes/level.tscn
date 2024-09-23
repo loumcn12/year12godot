@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=22 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3a5pt7iv3xck" path="res://Scenes/tv.tscn" id="12_7e4bs"]
 [ext_resource type="AudioStream" uid="uid://bnsqdl47f85x8" path="res://Assets/audio/FNAF1 sound/powerdown.wav" id="12_xhbu4"]
 [ext_resource type="PackedScene" uid="uid://bm0angf0cc252" path="res://Scenes/torchpickup.tscn" id="13_em3cq"]
+[ext_resource type="PackedScene" uid="uid://tftp0ffoooft" path="res://Assets/Blender/Generator.glb" id="16_5fuqd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -159,3 +160,6 @@ shape = SubResource("BoxShape3D_tbqnj")
 
 [node name="TV" parent="." instance=ExtResource("12_7e4bs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73265, 0.774483, 0.0244647)
+
+[node name="Generator" parent="." instance=ExtResource("16_5fuqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5523, 0.539173, -24.6897)
