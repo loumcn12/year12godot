@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=23 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bnsqdl47f85x8" path="res://Assets/audio/FNAF1 sound/powerdown.wav" id="12_xhbu4"]
 [ext_resource type="PackedScene" uid="uid://bm0angf0cc252" path="res://Scenes/torchpickup.tscn" id="13_em3cq"]
 [ext_resource type="PackedScene" uid="uid://tftp0ffoooft" path="res://Assets/Blender/Generator.glb" id="16_5fuqd"]
+[ext_resource type="PackedScene" uid="uid://btv7cexmlwpn5" path="res://Scenes/startbutton.tscn" id="17_0q4vr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -66,6 +67,18 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, -
 [node name="Shed Door" parent="Shed" instance=ExtResource("4_awk8q")]
 transform = Transform3D(1.00836, 0, 0, 0, 1, 0, 0, 0, 1, 3.99654, 0.00954989, 0.275877)
 
+[node name="Generator" parent="Shed" instance=ExtResource("16_5fuqd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.664299, 0.961948, -3.4477)
+
+[node name="startbutton" parent="Shed" instance=ExtResource("17_0q4vr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.299437, 0.352386, 2.10168)
+
+[node name="fueltank" parent="Shed" instance=ExtResource("10_j6diw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.2456, 0.715884, -0.6243)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Shed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47286, 0.878263, -1.55278)
+
 [node name="House" parent="." instance=ExtResource("10_fdg3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
 
@@ -73,9 +86,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
 
 [node name="gascan" parent="Gas Canisters" instance=ExtResource("9_sekky")]
 transform = Transform3D(-0.082269, 0, -0.99661, 0, 1, 0, 0.99661, 0, -0.082269, -16.2432, 0.0402002, -19.4612)
-
-[node name="fueltank" parent="Gas Canisters" instance=ExtResource("10_j6diw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.3757, 0.293109, -27.271)
 
 [node name="gascan2" parent="Gas Canisters" instance=ExtResource("9_sekky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.21237, 0.375225, 2.55235)
@@ -160,6 +170,3 @@ shape = SubResource("BoxShape3D_tbqnj")
 
 [node name="TV" parent="." instance=ExtResource("12_7e4bs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73265, 0.774483, 0.0244647)
-
-[node name="Generator" parent="." instance=ExtResource("16_5fuqd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5523, 0.539173, -24.6897)

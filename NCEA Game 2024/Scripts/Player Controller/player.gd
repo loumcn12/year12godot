@@ -37,6 +37,7 @@ var holding_gascan = false
 var holding_torch = false
 @export var torch_on = false
 
+
 # Head bobbing vars
 const head_bobbing_walking_speed = 5
 const head_bobbing_crouching_speed = 10.0
@@ -72,13 +73,15 @@ func _ready():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	
-	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 		
 	await get_tree().create_timer(1.2).timeout
 	$LoadingLabel.visible = false
 	$LoadingScreen.visible = false
 	await get_tree().create_timer(15).timeout
 	can_move = true
+	fueltank_notifier.visible = true
+	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+	
 		
 func _input(event):
 	if event is InputEventMouseButton:
@@ -118,6 +121,9 @@ func _check_ray_hit():
 					fueltank_notifier.visible = false
 					gascount = gascount + 1
 					$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+					if gascount == 3:
+						
+						Globalscript.phase = 2
 			elif collider.is_in_group("torch"):
 				torchnotifier.visible = true
 				
@@ -125,11 +131,18 @@ func _check_ray_hit():
 					holding_torch = true
 					torchnotifier.visible = false
 					collider.queue_free()
+			elif collider.is_in_group("startbutton") and Globalscript.phase == 2:
+				$Control/startbuttonnotifier.visible = true
+				
+				if Input.is_action_just_pressed("use"):
+					$Control/gascounter.visible = false
+					Globalscript.phase = 3
 			else:
 				fueltank_notifier.visible = false
 				gascan_notifier.visible = false
 				locked_door.visible = false
 				interaction_notifier.visible = false
+				$Control/startbuttonnotifier.visible = false
 	
 	else:
 		interaction_notifier.visible = false
@@ -138,6 +151,7 @@ func _check_ray_hit():
 		locked_door.visible = false
 		lock_door.visible = false
 		unlock_door.visible = false
+		$Control/startbuttonnotifier.visible = false
 
 func _walkSound():
 	if Input.is_action_pressed("backward") or Input.is_action_pressed("forward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
@@ -152,6 +166,8 @@ func _walkSound():
 func _physics_process(delta):
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
+	if Globalscript.phase == 1:
+		$Control/gascounter.visible = true
 	_walkSound()
 	_check_ray_hit()
 	# Get the input direction and handle the movement/deceleration.
