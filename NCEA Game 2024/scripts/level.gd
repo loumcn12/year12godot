@@ -21,7 +21,11 @@ func _physics_process(_delta):
 	if Globalscript.phase == 0 or Globalscript.phase == 3:
 		$Enviroment/SpotLight3D.visible = true
 		$Enviroment/SpotLight3D2.visible = true
-	elif Globalscript.phase == 1:
+	if Globalscript.phase == 1:
 		_powerdown()
-	elif Globalscript.phase == 3:
-		pass
+	if Globalscript.phase == 3:
+		$Shed/AudioStreamPlayer3D.play()
+		Globalscript.phase = 4
+	if Globalscript.phase == 4 and $Shed/AudioStreamPlayer3D.playing == false:
+		if $Shed/IdlePlayer.playing == false:
+			$Shed/IdlePlayer.play()
