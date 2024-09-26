@@ -43,7 +43,6 @@ script = ExtResource("1_01a51")
 [node name="player" parent="." instance=ExtResource("2_wmlmx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.29725, -0.0351515, -0.0089854)
 floor_max_angle = 1.23569
-walking_speed = 5.0
 crouching = true
 
 [node name="Doors" type="Node" parent="."]

@@ -21,9 +21,9 @@ extends CharacterBody3D
 @onready var torchnotifier = $Control/torchnotifier
 
 # Speed variables
-var current_speed = 5.0
-@export var walking_speed = 5.0
-@export var crouching_speed = 3.0
+var current_speed = 2.0
+@export var walking_speed = 2.0
+@export var crouching_speed = 2.0
 
 
 # States
@@ -79,7 +79,6 @@ func _ready():
 	$LoadingScreen.visible = false
 	await get_tree().create_timer(15).timeout
 	can_move = true
-	fueltank_notifier.visible = true
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 	
 		
