@@ -88,8 +88,8 @@ max_db = -10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47286, 0.878263, -1.55278)
 stream = ExtResource("13_5ic44")
 attenuation_model = 2
-volume_db = -20.0
-max_db = -10.0
+volume_db = -25.0
+max_db = -15.0
 
 [node name="House" parent="." instance=ExtResource("10_fdg3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
@@ -160,6 +160,14 @@ spot_angle_attenuation = 0.554784
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Enviroment"]
 transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -17.0024, 3.63548, -19.5314)
+light_color = Color(0.864803, 0.871976, 0.480517, 1)
+light_energy = 4.194
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+spot_angle = 38.02
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Enviroment"]
+transform = Transform3D(1, 0, 0, 0, -0.00612605, 0.999981, 0, -0.999981, -0.00612605, -17.0024, 3.63548, -23.1065)
 light_color = Color(0.864803, 0.871976, 0.480517, 1)
 light_energy = 4.194
 light_volumetric_fog_energy = 0.0

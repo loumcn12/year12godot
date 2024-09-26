@@ -45,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(1, 0, 0, 0, 0.994656, -0.103244, 0, 0.103244, 0.994656, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="neck/Head/eyes"]
+transform = Transform3D(1, 0, 0, 0, 0.970397, 0.241515, 0, -0.241515, 0.970397, 0, 0, 0)
 
 [node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
 target_position = Vector3(0, 0, -1.5)

@@ -77,7 +77,10 @@ func _ready():
 	await get_tree().create_timer(1.2).timeout
 	$LoadingLabel.visible = false
 	$LoadingScreen.visible = false
-	await get_tree().create_timer(15).timeout
+	camera_3d.current = false
+	await get_tree().create_timer(10).timeout
+	camera_3d.current = true
+	await get_tree().create_timer(5).timeout
 	can_move = true
 	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
 	
@@ -86,7 +89,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	# Make the camera movement match mouse movement
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and can_move:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
@@ -163,6 +166,7 @@ func _walkSound():
 		$WalkingPlayer.stop()
 		
 func _physics_process(delta):
+	
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 	if Globalscript.phase == 1:

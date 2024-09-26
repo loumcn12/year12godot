@@ -37,3 +37,7 @@ size = Vector2i(1280, 720)
 offset_right = 40.0
 offset_bottom = 40.0
 stream = SubResource("VideoStreamTheora_3svet")
+volume_db = -15.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.746542, 0.940265)
