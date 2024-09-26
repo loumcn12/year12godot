@@ -59,6 +59,7 @@ offset_right = 145.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
+button_pressed = true
 text = "Fullscreen Mode:"
 
 [node name="ResolutionButton" type="Button" parent="VBoxContainer"]

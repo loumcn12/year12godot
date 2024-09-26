@@ -12,6 +12,8 @@ func _ready() -> void:
 func _powerdown():
 	$Enviroment/SpotLight3D.visible = false
 	$Enviroment/SpotLight3D2.visible = false
+	$Enviroment/SpotLight3D5.visible = false
+	$Enviroment/SpotLight3D5.visible = false
 	if powerdown:
 		$Enviroment/AudioStreamPlayer3D.play()
 		powerdown = false
@@ -21,6 +23,8 @@ func _physics_process(_delta):
 	if Globalscript.phase == 0 or Globalscript.phase == 3:
 		$Enviroment/SpotLight3D.visible = true
 		$Enviroment/SpotLight3D2.visible = true
+		$Enviroment/SpotLight3D5.visible = true
+		$Enviroment/SpotLight3D5.visible = true
 	if Globalscript.phase == 1:
 		_powerdown()
 	if Globalscript.phase == 3:
