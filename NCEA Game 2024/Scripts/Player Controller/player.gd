@@ -82,7 +82,7 @@ func _ready():
 	camera_3d.current = true
 	await get_tree().create_timer(5).timeout
 	can_move = true
-	$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+	$Objective/gascounter.text = "Current Objective: Find the fuel canisters ( " + str(gascount) + "/3)"
 	
 		
 func _input(event):
@@ -122,7 +122,7 @@ func _check_ray_hit():
 					holding_gascan = false
 					fueltank_notifier.visible = false
 					gascount = gascount + 1
-					$Control/gascounter.text = "You have collected " + str(gascount) + "/3 fuel canisters"
+					$Objective/gascounter.text = "Current Objective: Find the fuel canisters ( " + str(gascount) + "/3)"
 					if gascount == 3:
 						
 						Globalscript.phase = 2
@@ -137,7 +137,7 @@ func _check_ray_hit():
 				$Control/startbuttonnotifier.visible = true
 				
 				if Input.is_action_just_pressed("use"):
-					$Control/gascounter.visible = false
+					$Objective/gascounter.visible = false
 					Globalscript.phase = 3
 			else:
 				fueltank_notifier.visible = false
@@ -170,7 +170,7 @@ func _physics_process(delta):
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 	if Globalscript.phase == 1:
-		$Control/gascounter.visible = true
+		$Objective/gascounter.visible = true
 	_walkSound()
 	_check_ray_hit()
 	# Get the input direction and handle the movement/deceleration.

@@ -155,14 +155,6 @@ grow_vertical = 2
 mouse_force_pass_scroll_events = false
 text = "Press E to deposit fuel canister"
 
-[node name="gascounter" type="Label" parent="Control"]
-visible = false
-layout_mode = 1
-offset_right = 281.0
-offset_bottom = 23.0
-mouse_force_pass_scroll_events = false
-text = "You have collected 0/3 fuel canisters"
-
 [node name="locked_door" type="Label" parent="Control"]
 visible = false
 layout_mode = 1
@@ -256,3 +248,25 @@ stream = ExtResource("6_lbsb1")
 
 [node name="ErrorPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_a36wq")
+
+[node name="Objective" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="gascounter" type="Label" parent="Objective"]
+visible = false
+layout_mode = 1
+offset_right = 281.0
+offset_bottom = 23.0
+mouse_force_pass_scroll_events = false
+text = "You have collected 0/3 fuel canisters"
+
+[node name="getinhouse" type="Label" parent="Objective"]
+visible = false
+layout_mode = 1
+offset_right = 281.0
+offset_bottom = 23.0
+mouse_force_pass_scroll_events = false
+text = "Current Objective: Get in the house"
