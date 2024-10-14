@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=26 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bm0angf0cc252" path="res://Scenes/torchpickup.tscn" id="13_em3cq"]
 [ext_resource type="PackedScene" uid="uid://tftp0ffoooft" path="res://Assets/Blender/Generator.glb" id="16_5fuqd"]
 [ext_resource type="PackedScene" uid="uid://btv7cexmlwpn5" path="res://Scenes/startbutton.tscn" id="17_0q4vr"]
+[ext_resource type="PackedScene" uid="uid://midpr0ohxawk" path="res://Scenes/enemy.tscn" id="20_a5grs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -212,3 +213,6 @@ shape = SubResource("BoxShape3D_tbqnj")
 
 [node name="TV" parent="." instance=ExtResource("12_7e4bs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73265, 0.774483, 0.0244647)
+
+[node name="Node3D" parent="." instance=ExtResource("20_a5grs")]
+transform = Transform3D(-0.55618, 0, 0.821475, 0, 0.992047, 0, -0.821475, 0, -0.55618, -23.863, -0.378399, -12.7882)

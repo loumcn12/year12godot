@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxrl4bqkmswtx"]
+[gd_scene load_steps=15 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
 [ext_resource type="PackedScene" uid="uid://cvemen72hd8iw" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://c1c3cdwony4ui" path="res://Assets/audio/FNAF1 sound/ambience2.wav" id="5_p3d4y"]
 [ext_resource type="AudioStream" uid="uid://b3it84ahg1kqd" path="res://Assets/audio/FNAF1 sound/deep steps.wav" id="6_lbsb1"]
 [ext_resource type="AudioStream" uid="uid://bax4gaooyw87h" path="res://Assets/audio/FNAF1 sound/error.wav" id="8_a36wq"]
+[ext_resource type="AudioStream" uid="uid://ds31l5dn7hjgg" path="res://Assets/audio/FNAF1 sound/windowscare.wav" id="9_em8n5"]
+[ext_resource type="Texture2D" uid="uid://b6ynss6oe4n8s" path="res://Assets/textures/output.jpeg" id="10_k6ct7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tevmw"]
 
@@ -42,12 +44,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="Head" type="Node3D" parent="neck"]
 
 [node name="eyes" type="Node3D" parent="neck/Head"]
-transform = Transform3D(1, 0, 0, 0, 0.994656, -0.103244, 0, 0.103244, 0.994656, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="neck/Head/eyes"]
-transform = Transform3D(1, 0, 0, 0, 0.970397, 0.241515, 0, -0.241515, 0.970397, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
+target_position = Vector3(0, 0, -1.5)
+
+[node name="interaction_check2" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
+transform = Transform3D(1.00041, 0, 0, 0, 1.00041, 0, 0, 0, 33.0341, 0, 0, 0)
 target_position = Vector3(0, 0, -1.5)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="neck/Head/eyes"]
@@ -249,6 +255,9 @@ stream = ExtResource("6_lbsb1")
 [node name="ErrorPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_a36wq")
 
+[node name="JumpscarePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_em8n5")
+
 [node name="Objective" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -270,3 +279,9 @@ offset_right = 281.0
 offset_bottom = 23.0
 mouse_force_pass_scroll_events = false
 text = "Current Objective: Get in the house"
+
+[node name="Jumpscare" type="TextureRect" parent="."]
+visible = false
+offset_right = 1910.0
+offset_bottom = 1086.0
+texture = ExtResource("10_k6ct7")

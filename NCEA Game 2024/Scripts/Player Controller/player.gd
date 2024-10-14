@@ -10,6 +10,7 @@ extends CharacterBody3D
 @onready var crouching_collision_shape = $crouching_collision_shape
 @onready var uncrouch_check = $uncrouch_check
 @onready var ray = $neck/Head/eyes/Camera3D/interaction_check
+@onready var longray = $neck/Head/eyes/Camera3D/interaction_check2
 @onready var interaction_notifier = $Control/interaction_notifier
 @onready var gascan_notifier = $Control/gascan_notifier
 @onready var fueltank_notifier = $Control/fueltank_notifier
@@ -94,11 +95,25 @@ func _input(event):
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
+func _jumpscare():
+	$JumpscarePlayer.play()
+	await get_tree().create_timer(0.2).timeout
+	$Jumpscare.visible = true
+	if !$JumpscarePlayer.playing:
+		$Jumpscare.visible = false
+
 func _check_ray_hit():
-	
+	if longray.is_colliding():
+		var collider2 = longray.get_collider()
+		if collider2:
+			if collider2.is_in_group("enemy") or collider2.is_in_group("enemy2"):
+				_jumpscare()
+				await get_tree().create_timer(5).timeout
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
+			
+				
 			if collider.is_in_group("door") and !collider.door_locked:
 				interaction_notifier.visible = true
 				

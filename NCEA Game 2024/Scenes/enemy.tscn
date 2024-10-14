@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://midpr0ohxawk"]
+
+[ext_resource type="PackedScene" uid="uid://dgc6t72orkckn" path="res://Assets/Blender/person.glb" id="1_geerd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a5f5f"]
+
+[node name="Node3D" type="StaticBody3D" groups=["enemy", "enemy2"]]
+
+[node name="Area3D" type="Area3D" parent="." groups=["enemy", "enemy2"]]
+
+[node name="person" parent="Area3D" groups=["enemy", "enemy2"] instance=ExtResource("1_geerd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["enemy", "enemy2"]]
+transform = Transform3D(1.66443, 0, 0, 0, 1.66443, 0, 0, 0, 1.66443, 0, 1.085, 0)
+shape = SubResource("CapsuleShape3D_a5f5f")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." groups=["enemy", "enemy2"]]
+transform = Transform3D(1.665, 0, 0, 0, 1.665, 0, 0, 0, 1.665, 0, 1.085, 0)
+shape = SubResource("CapsuleShape3D_a5f5f")
