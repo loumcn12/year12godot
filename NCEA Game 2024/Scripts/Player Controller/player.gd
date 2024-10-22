@@ -20,6 +20,8 @@ extends CharacterBody3D
 @onready var torchlight = $neck/Head/eyes/SpotLight3D
 @onready var torch = $neck/Head/eyes/torch
 @onready var torchnotifier = $Control/torchnotifier
+@onready var jumpscare = $Jumpscare
+@onready var jumpscareplayer = $JumpscarePlayer
 
 # Speed variables
 var current_speed = 2.0
@@ -96,11 +98,10 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _jumpscare():
-	$JumpscarePlayer.play()
-	await get_tree().create_timer(0.2).timeout
-	$Jumpscare.visible = true
-	if !$JumpscarePlayer.playing:
-		$Jumpscare.visible = false
+	jumpscareplayer.play()
+	jumpscare.visible = true
+	if jumpscareplayer.playing == false:
+		jumpscare.visible = false
 
 func _check_ray_hit():
 	if longray.is_colliding():
@@ -108,7 +109,8 @@ func _check_ray_hit():
 		if collider2:
 			if collider2.is_in_group("enemy") or collider2.is_in_group("enemy2"):
 				_jumpscare()
-				await get_tree().create_timer(5).timeout
+				await get_tree().create_timer(0.5).timeout
+				jumpscare.visible = false
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:

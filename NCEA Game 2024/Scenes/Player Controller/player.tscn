@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxrl4bqkmswtx"]
+[gd_scene load_steps=16 format=3 uid="uid://bxrl4bqkmswtx"]
 
 [ext_resource type="PackedScene" uid="uid://crb4hiqn4un21" path="res://Scenes/gascan.tscn" id="2_f7xrk"]
 [ext_resource type="PackedScene" uid="uid://cvemen72hd8iw" path="res://Assets/Blender/torch.glb" id="2_r6xpi"]
@@ -22,6 +22,8 @@ specular_color = Color(0, 0, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p1eqk"]
 shader = ExtResource("3_5ein4")
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3mlnd"]
+
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("3_vlw48")
 crouching_speed = 1.0
@@ -44,10 +46,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="Head" type="Node3D" parent="neck"]
 
 [node name="eyes" type="Node3D" parent="neck/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="neck/Head/eyes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="interaction_check" type="RayCast3D" parent="neck/Head/eyes/Camera3D"]
 target_position = Vector3(0, 0, -1.5)
@@ -285,3 +285,7 @@ visible = false
 offset_right = 1910.0
 offset_bottom = 1086.0
 texture = ExtResource("10_k6ct7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.991164, 0)
+mesh = SubResource("CapsuleMesh_3mlnd")
