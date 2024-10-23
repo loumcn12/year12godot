@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a5f5f"]
 
-[node name="Node3D" type="StaticBody3D" groups=["enemy", "enemy2"]]
+[node name="enemy" type="StaticBody3D" groups=["enemy", "enemy2"]]
 
 [node name="Area3D" type="Area3D" parent="." groups=["enemy", "enemy2"]]
 

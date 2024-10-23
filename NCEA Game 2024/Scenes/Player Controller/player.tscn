@@ -26,6 +26,7 @@ shader = ExtResource("3_5ein4")
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("3_vlw48")
+walking_speed = 10.0
 crouching_speed = 1.0
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="."]
@@ -92,6 +93,40 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_force_pass_scroll_events = false
 text = "Press E to open/close door"
+
+[node name="interaction_notifier2" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "Its dark outside! I should grab a torch before I go exploring."
+
+[node name="interaction_notifier3" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+text = "This looks useful! I should remember its location for later."
 
 [node name="startbuttonnotifier" type="Label" parent="Control"]
 visible = false
@@ -212,12 +247,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368934, 0.676157, -1.10868)
 visible = false
 
 [node name="LoadingScreen" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(966.25, 544.75)
 scale = Vector2(1933.5, 1090.5)
 texture = SubResource("CanvasTexture_dwex6")
 
 [node name="LoadingLabel" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -269,16 +306,28 @@ visible = false
 layout_mode = 1
 offset_right = 281.0
 offset_bottom = 23.0
+scale = Vector2(1.92, 1.92)
 mouse_force_pass_scroll_events = false
-text = "You have collected 0/3 fuel canisters"
+text = "Current Objective: Find the fuel canisters (0/3)"
+
+[node name="generatorobjective" type="Label" parent="Objective"]
+visible = false
+layout_mode = 1
+offset_right = 281.0
+offset_bottom = 23.0
+scale = Vector2(1.92, 1.92)
+mouse_force_pass_scroll_events = false
+text = "Current Objective: Start the backup generator"
 
 [node name="getinhouse" type="Label" parent="Objective"]
 visible = false
 layout_mode = 1
 offset_right = 281.0
 offset_bottom = 23.0
+scale = Vector2(1.56, 1.56)
 mouse_force_pass_scroll_events = false
-text = "Current Objective: Get in the house"
+theme_override_font_sizes/font_size = 20
+text = "Current Objective: Run to the house!"
 
 [node name="Jumpscare" type="TextureRect" parent="."]
 visible = false

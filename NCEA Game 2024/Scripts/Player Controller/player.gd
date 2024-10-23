@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var ray = $neck/Head/eyes/Camera3D/interaction_check
 @onready var longray = $neck/Head/eyes/Camera3D/interaction_check2
 @onready var interaction_notifier = $Control/interaction_notifier
+@onready var interaction_notifier2 = $Control/interaction_notifier2
 @onready var gascan_notifier = $Control/gascan_notifier
 @onready var fueltank_notifier = $Control/fueltank_notifier
 @onready var locked_door = $Control/locked_door
@@ -39,6 +40,7 @@ var can_doublejump = true
 var holding_gascan = false
 var holding_torch = false
 @export var torch_on = false
+var scared = false
 
 
 # Head bobbing vars
@@ -102,21 +104,29 @@ func _jumpscare():
 	jumpscare.visible = true
 	if jumpscareplayer.playing == false:
 		jumpscare.visible = false
+	$Objective/getinhouse.visible = true
+	Globalscript.phase = 5
+	await get_tree().create_timer(5).timeout
+	scared = false
+	
+	
 
 func _check_ray_hit():
 	if longray.is_colliding():
 		var collider2 = longray.get_collider()
 		if collider2:
 			if collider2.is_in_group("enemy") or collider2.is_in_group("enemy2"):
-				_jumpscare()
-				await get_tree().create_timer(0.5).timeout
-				jumpscare.visible = false
+				if scared == false:
+					scared = true
+					_jumpscare()
+					await get_tree().create_timer(0.5).timeout
+					jumpscare.visible = false
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
 			
 				
-			if collider.is_in_group("door") and !collider.door_locked:
+			if collider.is_in_group("door") and !collider.door_locked and holding_torch:
 				interaction_notifier.visible = true
 				
 				if Input.is_action_just_pressed("use") :
@@ -125,12 +135,18 @@ func _check_ray_hit():
 				locked_door.visible = true
 				if Input.is_action_just_pressed("use"):
 					$ErrorPlayer.play()
-			elif collider.is_in_group("gascan") and !holding_gascan:
+			elif collider.is_in_group("door") and holding_torch == false:
+				interaction_notifier2.visible = true
+				if Input.is_action_just_pressed("use"):
+					$ErrorPlayer.play()
+			elif collider.is_in_group("gascan") and !holding_gascan and $Objective/generatorobjective.visible == false:
 				gascan_notifier.visible = true
 				
 				if Input.is_action_just_pressed("use"):
 					holding_gascan = true
 					collider.queue_free()
+			elif collider.is_in_group("gascan") and !holding_gascan and $Objective/generatorobjective.visible == true:
+				$Control/interaction_notifier3.visible = true
 					
 			elif collider.is_in_group("fueltank") and holding_gascan:
 				fueltank_notifier.visible = true
@@ -139,7 +155,7 @@ func _check_ray_hit():
 					holding_gascan = false
 					fueltank_notifier.visible = false
 					gascount = gascount + 1
-					$Objective/gascounter.text = "Current Objective: Find the fuel canisters ( " + str(gascount) + "/3)"
+					$Objective/gascounter.text = "Current Objective: Find the fuel canisters (" + str(gascount) + "/3)"
 					if gascount == 3:
 						
 						Globalscript.phase = 2
@@ -150,6 +166,11 @@ func _check_ray_hit():
 					holding_torch = true
 					torchnotifier.visible = false
 					collider.queue_free()
+			elif collider.is_in_group("startbutton") and Globalscript.phase == 1:
+				$Control/startbuttonnotifier.visible = true
+				if Input.is_action_just_pressed("use"):
+					$Objective/generatorobjective.visible = false
+					$Objective/gascounter.visible = true
 			elif collider.is_in_group("startbutton") and Globalscript.phase == 2:
 				$Control/startbuttonnotifier.visible = true
 				
@@ -157,20 +178,26 @@ func _check_ray_hit():
 					$Objective/gascounter.visible = false
 					Globalscript.phase = 3
 			else:
+				interaction_notifier2.visible = false
 				fueltank_notifier.visible = false
 				gascan_notifier.visible = false
 				locked_door.visible = false
 				interaction_notifier.visible = false
+				torchnotifier.visible = false
 				$Control/startbuttonnotifier.visible = false
+				$Control/interaction_notifier3.visible = false
 	
 	else:
+		interaction_notifier2.visible = false
 		interaction_notifier.visible = false
 		fueltank_notifier.visible = false
 		gascan_notifier.visible = false
 		locked_door.visible = false
 		lock_door.visible = false
 		unlock_door.visible = false
+		torchnotifier.visible = false
 		$Control/startbuttonnotifier.visible = false
+		$Control/interaction_notifier3.visible = false
 
 func _walkSound():
 	if Input.is_action_pressed("backward") or Input.is_action_pressed("forward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
@@ -186,8 +213,8 @@ func _physics_process(delta):
 	
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
-	if Globalscript.phase == 1:
-		$Objective/gascounter.visible = true
+	if Globalscript.startdone == true and $Objective/gascounter.visible == false and Globalscript.phase == 1:
+		$Objective/generatorobjective.visible = true
 	_walkSound()
 	_check_ray_hit()
 	# Get the input direction and handle the movement/deceleration.

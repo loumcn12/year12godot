@@ -214,5 +214,5 @@ shape = SubResource("BoxShape3D_tbqnj")
 [node name="TV" parent="." instance=ExtResource("12_7e4bs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.73265, 0.774483, 0.0244647)
 
-[node name="Node3D" parent="." instance=ExtResource("20_a5grs")]
-transform = Transform3D(-0.55618, 0, 0.821475, 0, 0.992047, 0, -0.821475, 0, -0.55618, -23.863, -0.378399, -12.7882)
+[node name="enemy" parent="." instance=ExtResource("20_a5grs")]
+transform = Transform3D(-0.954438, 0, 0.298408, 0, 1, 0, -0.298408, 0, -0.954438, -25.0098, 0, -4.52196)
