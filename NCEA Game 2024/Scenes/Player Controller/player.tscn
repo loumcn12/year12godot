@@ -329,6 +329,16 @@ mouse_force_pass_scroll_events = false
 theme_override_font_sizes/font_size = 20
 text = "Current Objective: Run to the house!"
 
+[node name="securehouse" type="Label" parent="Objective"]
+visible = false
+layout_mode = 1
+offset_right = 281.0
+offset_bottom = 23.0
+scale = Vector2(1.56, 1.56)
+mouse_force_pass_scroll_events = false
+theme_override_font_sizes/font_size = 20
+text = "Current Objective: Secure the house!"
+
 [node name="Jumpscare" type="TextureRect" parent="."]
 visible = false
 offset_right = 1910.0

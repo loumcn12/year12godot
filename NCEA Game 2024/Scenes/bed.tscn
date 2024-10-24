@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://npby381d4ue4"]
+
+[ext_resource type="PackedScene" uid="uid://cs3fjgvp4tbgr" path="res://Assets/Blender/bed.glb" id="1_jql0r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lreow"]
+size = Vector3(2.78906, 1, 4.11743)
+
+[node name="bed" type="StaticBody3D" groups=["bed", "bed2"]]
+
+[node name="Area3D" type="Area3D" parent="." groups=["bed", "bed2"]]
+
+[node name="bed" parent="Area3D" groups=["bed", "bed2"] instance=ExtResource("1_jql0r")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" groups=["bed", "bed2"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.488934, 0)
+shape = SubResource("BoxShape3D_lreow")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["bed", "bed2"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00316954, 0.488934, 0.0133038)
+shape = SubResource("BoxShape3D_lreow")

@@ -105,7 +105,7 @@ func _jumpscare():
 	if jumpscareplayer.playing == false:
 		jumpscare.visible = false
 	$Objective/getinhouse.visible = true
-	Globalscript.phase = 5
+	Globalscript.phase = 6
 	await get_tree().create_timer(5).timeout
 	scared = false
 	
@@ -115,18 +115,33 @@ func _check_ray_hit():
 	if longray.is_colliding():
 		var collider2 = longray.get_collider()
 		if collider2:
-			if collider2.is_in_group("enemy") or collider2.is_in_group("enemy2"):
+			if collider2.is_in_group("enemy") or collider2.is_in_group("enemy2") and Globalscript.phase == 5:
 				if scared == false:
 					scared = true
 					_jumpscare()
 					await get_tree().create_timer(0.5).timeout
 					jumpscare.visible = false
+			
+	
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
 			
+			if collider.is_in_group("house") and Globalscript.phase == 6:
+				Globalscript.phase = 7
+				$Objective/getinhouse.visible = false
+				$Objective/securehouse.visible = true
 				
-			if collider.is_in_group("door") and !collider.door_locked and holding_torch:
+			if collider.is_in_group("bed") or collider.is_in_group("bed2"):
+				pass
+			if collider.is_in_group("house") and collider.is_in_group("door") and Globalscript.phase == 7:
+				interaction_notifier.visible = true
+				if Input.is_action_just_pressed("use") and collider.door_open == false:
+					collider.open_door()
+				elif collider.door_open == true:
+					lock_door.visible = true
+				
+			if collider.is_in_group("door") and !collider.door_locked and holding_torch and Globalscript.phase != 7:
 				interaction_notifier.visible = true
 				
 				if Input.is_action_just_pressed("use") :
@@ -200,6 +215,7 @@ func _check_ray_hit():
 		$Control/interaction_notifier3.visible = false
 
 func _walkSound():
+	
 	if Input.is_action_pressed("backward") or Input.is_action_pressed("forward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		currentlywalking = true
 	else:
@@ -208,6 +224,8 @@ func _walkSound():
 		$WalkingPlayer.play()
 	elif !currentlywalking:
 		$WalkingPlayer.stop()
+		
+
 		
 func _physics_process(delta):
 	
@@ -307,3 +325,7 @@ func _physics_process(delta):
 		get_tree().quit()
 	
 	move_and_slide()
+
+
+
+	pass # Replace with function body.

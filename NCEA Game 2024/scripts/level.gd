@@ -25,6 +25,8 @@ func _powerdown():
 		powerdown = false
 		Globalscript.startdone = true
 		
+
+
 func _physics_process(_delta):
 	
 	if Globalscript.phase == 0:
@@ -37,8 +39,14 @@ func _physics_process(_delta):
 		_powerdown()
 	if Globalscript.phase == 3:
 		$Shed/AudioStreamPlayer3D.play()
+		if $Shed/ShedDoor.door_open == true:
+			$Shed/ShedDoor.open_door()
+		if $Shed/ShedDoor.door_open == false:
+			$Shed/ShedDoor.door_locked = true
+		if $"Doors/Back Door".door_open == true:
+			$"Doors/Back Door".open_door()
 		Globalscript.phase = 4
-	if Globalscript.phase == 4 and $Shed/AudioStreamPlayer3D.playing == false:
+	if Globalscript.phase > 3 and Globalscript.phase < 6 and $Shed/AudioStreamPlayer3D.playing == false:
 		
 		idling = true
 		$Enviroment/SpotLight3D.visible = true
@@ -47,11 +55,12 @@ func _physics_process(_delta):
 		$Enviroment/SpotLight3D5.visible = true
 		$Enviroment/SpotLight3D6.visible = true
 		Globalscript.phase = 5
+		$Shed/ShedDoor.door_locked = false
 	if Globalscript.phase < 4:
 		enemy.position.y = -20
 	if Globalscript.phase == 4:
 		enemy.position.y = 0
-	if Globalscript.phase == 5:
+	if Globalscript.phase == 6:
 		enemy.position.y = -20
 	if idling == true:
 		if $Shed/IdlePlayer.playing == false:

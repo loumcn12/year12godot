@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://l55gt1wnx5n0"]
+[gd_scene load_steps=28 format=3 uid="uid://l55gt1wnx5n0"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_01a51"]
 [ext_resource type="PackedScene" uid="uid://bxrl4bqkmswtx" path="res://Scenes/Player Controller/player.tscn" id="2_wmlmx"]
@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://tftp0ffoooft" path="res://Assets/Blender/Generator.glb" id="16_5fuqd"]
 [ext_resource type="PackedScene" uid="uid://btv7cexmlwpn5" path="res://Scenes/startbutton.tscn" id="17_0q4vr"]
 [ext_resource type="PackedScene" uid="uid://midpr0ohxawk" path="res://Scenes/enemy.tscn" id="20_a5grs"]
+[ext_resource type="PackedScene" uid="uid://c0og7f4nmxttt" path="res://Scenes/housefloor.tscn" id="21_vhxje"]
+[ext_resource type="PackedScene" uid="uid://npby381d4ue4" path="res://Scenes/bed.tscn" id="22_fkomq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7saj8"]
 
@@ -61,13 +63,13 @@ door_locked = true
 [node name="Bathroom Door" parent="Doors" instance=ExtResource("5_k7i6l")]
 transform = Transform3D(0.88644, 0, 0, 0, 1, 0, 0, 0, 1, 0.281367, 0, -0.980426)
 
-[node name="Back Door" parent="Doors" instance=ExtResource("6_8eed4")]
+[node name="Back Door" parent="Doors" groups=["house"] instance=ExtResource("6_8eed4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0618185, -0.000224859, -6.96052)
 
 [node name="Shed" parent="." instance=ExtResource("9_vi4ic")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17, -0.422775, -24.0254)
 
-[node name="Shed Door" parent="Shed" instance=ExtResource("4_awk8q")]
+[node name="ShedDoor" parent="Shed" instance=ExtResource("4_awk8q")]
 transform = Transform3D(1.00836, 0, 0, 0, 1, 0, 0, 0, 1, 3.99654, 0.00954989, 0.275877)
 
 [node name="Generator" parent="Shed" instance=ExtResource("16_5fuqd")]
@@ -92,7 +94,7 @@ attenuation_model = 2
 volume_db = -25.0
 max_db = -15.0
 
-[node name="House" parent="." instance=ExtResource("10_fdg3w")]
+[node name="House" parent="." groups=["house"] instance=ExtResource("10_fdg3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199, 0, 0.464)
 
 [node name="Gas Canisters" type="Node" parent="."]
@@ -216,3 +218,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.732
 
 [node name="enemy" parent="." instance=ExtResource("20_a5grs")]
 transform = Transform3D(-0.954438, 0, 0.298408, 0, 1, 0, -0.298408, 0, -0.954438, -25.0098, 0, -4.52196)
+
+[node name="Housefloor" parent="." instance=ExtResource("21_vhxje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.55295, 0)
+
+[node name="bed" parent="." groups=["house"] instance=ExtResource("22_fkomq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56248, 0, -11.7298)

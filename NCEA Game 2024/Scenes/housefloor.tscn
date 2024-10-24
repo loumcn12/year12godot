@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0og7f4nmxttt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kciep"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_han6g"]
+
+[node name="StaticBody3D" type="StaticBody3D" groups=["house"]]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." groups=["house"]]
+transform = Transform3D(13, 0, 0, 0, 13, 0, 0, 0, 13, 0, 0, 0)
+shape = SubResource("BoxShape3D_kciep")
+
+[node name="Area3D" type="Area3D" parent="." groups=["house"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["house"]]
+transform = Transform3D(13, 0, 0, 0, 13, 0, 0, 0, 13, 0, 0, 0)
+shape = SubResource("BoxShape3D_han6g")
