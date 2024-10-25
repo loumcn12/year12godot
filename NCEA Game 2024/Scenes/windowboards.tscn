@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ebdxhh8me72" path="res://Assets/Blender/windowboards.glb" id="1_63otn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ixbq"]
-size = Vector3(1, 1.41504, 3.07855)
+size = Vector3(0.650879, 1.41504, 3.07855)
 
 [node name="windowboards" type="StaticBody3D" groups=["windowboards"]]
 script = ExtResource("1_6wtdb")
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85511, 2.02947, -5.73868)
 shape = SubResource("BoxShape3D_0ixbq")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="." groups=["windowboards"]]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.0506, 2.02947, -6.87491)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.0506, 2.02947, -7.04947)
 shape = SubResource("BoxShape3D_0ixbq")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="." groups=["windowboards"]]

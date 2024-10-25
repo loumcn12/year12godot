@@ -161,14 +161,15 @@ func _check_ray_hit():
 						
 						if Input.is_action_just_pressed("use"):
 							collider.open_door()
-			elif collider.is_in_group("door") and collider.door_locked:
-				locked_door.visible = true
-				if Input.is_action_just_pressed("use"):
-					$ErrorPlayer.play()
-			elif collider.is_in_group("door") and holding_torch == false:
-				interaction_notifier2.visible = true
-				if Input.is_action_just_pressed("use"):
-					$ErrorPlayer.play()
+					elif collider.door_locked:
+						locked_door.visible = true
+						if Input.is_action_just_pressed("use"):
+							$ErrorPlayer.play()
+					elif holding_torch == false:
+						interaction_notifier2.visible = true
+						if Input.is_action_just_pressed("use"):
+							$ErrorPlayer.play()
+			
 			elif collider.is_in_group("gascan") and !holding_gascan and $Objective/generatorobjective.visible == false:
 				gascan_notifier.visible = true
 				
@@ -201,10 +202,12 @@ func _check_ray_hit():
 				if Input.is_action_just_pressed("use"):
 					$Objective/generatorobjective.visible = false
 					$Objective/gascounter.visible = true
+					$ErrorPlayer.play()
 			elif collider.is_in_group("startbutton") and Globalscript.phase == 2:
 				$Control/startbuttonnotifier.visible = true
 				
 				if Input.is_action_just_pressed("use"):
+					
 					$Objective/gascounter.visible = false
 					Globalscript.phase = 3
 			else:
@@ -340,12 +343,9 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	
 	# Reset the scene if prompted or if player falls out of world
-	if player.position.y < -10 || Input.is_physical_key_pressed(KEY_R):
+	if player.position.y < -10:
 		get_tree().reload_current_scene()
-	
-	# Quits the game if the escape key is pressed
-	if Input.is_physical_key_pressed(KEY_ESCAPE):
-		get_tree().quit()
+
 	
 	move_and_slide()
 

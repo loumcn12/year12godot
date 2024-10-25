@@ -26,7 +26,6 @@ shader = ExtResource("3_5ein4")
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("3_vlw48")
-walking_speed = 10.0
 crouching_speed = 1.0
 
 [node name="standing_collision_shape" type="CollisionShape3D" parent="."]

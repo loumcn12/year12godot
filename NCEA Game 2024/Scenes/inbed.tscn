@@ -1,9 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtihbxcf0qlgu"]
+[gd_scene load_steps=19 format=3 uid="uid://dtihbxcf0qlgu"]
 
 [ext_resource type="Script" path="res://Scenes/inbed.gd" id="1_okyrx"]
 [ext_resource type="PackedScene" uid="uid://c7k7ltkugm7vp" path="res://Assets/Blender/tv.glb" id="4_odu6h"]
 [ext_resource type="AudioStream" uid="uid://bax4gaooyw87h" path="res://Assets/audio/FNAF1 sound/error.wav" id="6_53tvl"]
 [ext_resource type="PackedScene" uid="uid://bkm7m4bfvhfai" path="res://Assets/Blender/frontdoor.glb" id="6_d5lh8"]
+[ext_resource type="AudioStream" uid="uid://bd48qao7w8ief" path="res://Assets/audio/FNAF1 sound/XSCREAM.wav" id="7_kgjb1"]
+[ext_resource type="PackedScene" uid="uid://dgc6t72orkckn" path="res://Assets/Blender/person.glb" id="8_24qfn"]
+[ext_resource type="AudioStream" uid="uid://he10d12je6hn" path="res://Assets/audio/FNAF1 sound/knock2.wav" id="8_75tux"]
+[ext_resource type="AudioStream" uid="uid://b3it84ahg1kqd" path="res://Assets/audio/FNAF1 sound/deep steps.wav" id="9_aobq1"]
+[ext_resource type="Texture2D" uid="uid://b6ynss6oe4n8s" path="res://Assets/textures/output.jpeg" id="10_11gu2"]
+[ext_resource type="AudioStream" uid="uid://c1c3cdwony4ui" path="res://Assets/audio/FNAF1 sound/ambience2.wav" id="13_057ay"]
 [ext_resource type="PackedScene" uid="uid://b4u7voceqohpl" path="res://Assets/Blender/betterhouse.glb" id="14_ndxrf"]
 [ext_resource type="AudioStream" uid="uid://bnsqdl47f85x8" path="res://Assets/audio/FNAF1 sound/powerdown.wav" id="16_rikts"]
 [ext_resource type="PackedScene" uid="uid://npby381d4ue4" path="res://Scenes/bed.tscn" id="22_bb5o5"]
@@ -21,6 +27,9 @@ volumetric_fog_enabled = true
 
 [sub_resource type="FogMaterial" id="FogMaterial_1fnpm"]
 emission = Color(0.237539, 0.237539, 0.237539, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nekwj"]
+specular_color = Color(0, 0, 0, 1)
 
 [node name="inbed" type="Node3D"]
 script = ExtResource("1_okyrx")
@@ -94,12 +103,6 @@ light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 spot_angle = 38.02
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Enviroment"]
-stream = ExtResource("16_rikts")
-volume_db = -25.0
-max_db = 1.0
-max_distance = 10.0
-
 [node name="SpotLight3D3" type="SpotLight3D" parent="Enviroment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 38.7669, 0)
 light_energy = 0.0
@@ -127,12 +130,20 @@ stream = ExtResource("6_53tvl")
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29077, 0.868501, -3.10723)
+stream = ExtResource("7_kgjb1")
+volume_db = -14.692
 
 [node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29077, 0.868501, -3.10723)
+stream = ExtResource("8_75tux")
 
 [node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29077, 0.868501, -3.10723)
+stream = ExtResource("9_aobq1")
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29077, 0.868501, -3.10723)
+stream = ExtResource("9_aobq1")
 
 [node name="frontdoor2" parent="." instance=ExtResource("6_d5lh8")]
 transform = Transform3D(0.480438, 0, 0.877029, 0, 1, 0, -0.877029, 0, 0.480438, 0.119697, -2.38419e-07, -3.24986)
@@ -184,3 +195,25 @@ text = "Yes"
 layout_mode = 2
 action_mode = 0
 text = "No"
+
+[node name="LoadingScreen" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(966.25, 544.75)
+scale = Vector2(1933.5, 1090.5)
+texture = SubResource("CanvasTexture_nekwj")
+
+[node name="person" parent="." instance=ExtResource("8_24qfn")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -0.404638, 0, -2.51462)
+visible = false
+
+[node name="Jumpscare" type="TextureRect" parent="."]
+visible = false
+offset_right = 1910.0
+offset_bottom = 1086.0
+texture = ExtResource("10_11gu2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_057ay")
+volume_db = -10.0
+autoplay = true
