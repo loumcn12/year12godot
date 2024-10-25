@@ -65,3 +65,5 @@ func _physics_process(_delta):
 	if idling == true:
 		if $Shed/IdlePlayer.playing == false:
 			$Shed/IdlePlayer.play()
+	if Globalscript.phase == 8 and $"Doors/Back Door".door_open == false and $"Doors/Front Door".door_open == false:
+		Globalscript.phase = 9

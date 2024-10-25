@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://buakvu0p7g8ty"]
+
+[ext_resource type="Script" path="res://scripts/windowboards.gd" id="1_6wtdb"]
+[ext_resource type="PackedScene" uid="uid://b8ebdxhh8me72" path="res://Assets/Blender/windowboards.glb" id="1_63otn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ixbq"]
+size = Vector3(1, 1.41504, 3.07855)
+
+[node name="windowboards" type="StaticBody3D" groups=["windowboards"]]
+script = ExtResource("1_6wtdb")
+
+[node name="Area3D" type="Area3D" parent="." groups=["windowboards"]]
+
+[node name="windowboards" parent="Area3D" groups=["windowboards"] instance=ExtResource("1_63otn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00487518, -0.00550222, 0.00743628)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["windowboards"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96725, 2.02947, -4.42664)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Area3D" groups=["windowboards"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.510963, 5.96725, 2.02947, -0.161229)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" groups=["windowboards"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85511, 2.02947, -5.73868)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" groups=["windowboards"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.0506, 2.02947, -6.87491)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Area3D" groups=["windowboards"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.51065, 2.02947, 4.67013)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." groups=["windowboards"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96725, 2.02947, -4.42664)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." groups=["windowboards"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.510963, 5.96725, 2.02947, -0.161229)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="." groups=["windowboards"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.85511, 2.02947, -5.73868)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="." groups=["windowboards"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.0506, 2.02947, -6.87491)
+shape = SubResource("BoxShape3D_0ixbq")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="." groups=["windowboards"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.51065, 2.02947, 4.67013)
+shape = SubResource("BoxShape3D_0ixbq")

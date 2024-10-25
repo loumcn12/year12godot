@@ -41,6 +41,9 @@ var holding_gascan = false
 var holding_torch = false
 @export var torch_on = false
 var scared = false
+var doorsclosed = false
+
+
 
 
 # Head bobbing vars
@@ -87,7 +90,7 @@ func _ready():
 	camera_3d.current = true
 	await get_tree().create_timer(5).timeout
 	can_move = true
-	$Objective/gascounter.text = "Current Objective: Find the fuel canisters ( " + str(gascount) + "/3)"
+	$Objective/gascounter.text = "Current Objective: Find the fuel canisters ( " + str(gascount) + "/5)"
 	
 		
 func _input(event):
@@ -126,26 +129,38 @@ func _check_ray_hit():
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider:
+				
+				
+			if collider.is_in_group("bed") or collider.is_in_group("bed2") :
+				$Control/getinbed.visible = true
+	
+				if Input.is_action_just_pressed("use"):
+					
+					get_tree().change_scene_to_file("res://Scenes/inbed.tscn")
+				
+			if collider.is_in_group("windowboards") and Globalscript.phase == 7:
+				$Control/boardwindows.visible = true
+				if Input.is_action_just_pressed("use"):
+					collider.windowboards2.visible = true
+					Globalscript.phase = 8
 			
-			if collider.is_in_group("house") and Globalscript.phase == 6:
-				Globalscript.phase = 7
-				$Objective/getinhouse.visible = false
-				$Objective/securehouse.visible = true
-				
-			if collider.is_in_group("bed") or collider.is_in_group("bed2"):
-				pass
-			if collider.is_in_group("house") and collider.is_in_group("door") and Globalscript.phase == 7:
-				interaction_notifier.visible = true
-				if Input.is_action_just_pressed("use") and collider.door_open == false:
-					collider.open_door()
-				elif collider.door_open == true:
-					lock_door.visible = true
-				
-			if collider.is_in_group("door") and !collider.door_locked and holding_torch and Globalscript.phase != 7:
-				interaction_notifier.visible = true
-				
-				if Input.is_action_just_pressed("use") :
-					collider.open_door()
+			if collider.is_in_group("door"):
+				if Globalscript.phase == 6:
+					if collider.is_in_group("house"):
+						if collider.door_open == false and Globalscript.phase < 9:
+								interaction_notifier.visible = true
+								if Input.is_action_just_pressed("use"):
+									collider.open_door()
+									$Objective/getinhouse.visible = false
+									$Objective/securehouse.visible = true
+									Globalscript.phase = 7
+
+				else:
+					if !collider.door_locked and holding_torch:
+						interaction_notifier.visible = true
+						
+						if Input.is_action_just_pressed("use"):
+							collider.open_door()
 			elif collider.is_in_group("door") and collider.door_locked:
 				locked_door.visible = true
 				if Input.is_action_just_pressed("use"):
@@ -170,8 +185,8 @@ func _check_ray_hit():
 					holding_gascan = false
 					fueltank_notifier.visible = false
 					gascount = gascount + 1
-					$Objective/gascounter.text = "Current Objective: Find the fuel canisters (" + str(gascount) + "/3)"
-					if gascount == 3:
+					$Objective/gascounter.text = "Current Objective: Find the fuel canisters (" + str(gascount) + "/5)"
+					if gascount == 5:
 						
 						Globalscript.phase = 2
 			elif collider.is_in_group("torch"):
@@ -201,6 +216,8 @@ func _check_ray_hit():
 				torchnotifier.visible = false
 				$Control/startbuttonnotifier.visible = false
 				$Control/interaction_notifier3.visible = false
+				#$Control/boardwindows.visible = false
+				#$Control/boarddoors.visible = false
 	
 	else:
 		interaction_notifier2.visible = false
@@ -213,6 +230,8 @@ func _check_ray_hit():
 		torchnotifier.visible = false
 		$Control/startbuttonnotifier.visible = false
 		$Control/interaction_notifier3.visible = false
+		$Control/boardwindows.visible = false
+		$Control/boarddoors.visible = false
 
 func _walkSound():
 	
@@ -229,6 +248,10 @@ func _walkSound():
 		
 func _physics_process(delta):
 	
+	if Globalscript.phase == 9:
+		$Objective/securehouse.visible = false
+		$Objective/getinbed.visible = true
+		
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 	if Globalscript.startdone == true and $Objective/gascounter.visible == false and Globalscript.phase == 1:
